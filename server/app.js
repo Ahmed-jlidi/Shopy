@@ -15,10 +15,16 @@ mongoose.connect(process.env.database,{
 }).catch((err)=>{
     console.log(err,"you have an error ")
 })
+
+var corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200 ,// For legacy browser support
+    methods: "GET, PUT ,POST , DELETE"
+}
 //use parsing middleware
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(cors())
+app.use(cors(corsOptions))
 // Import Routes
 
 const userRoutes = require("./routes/user")

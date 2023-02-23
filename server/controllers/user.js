@@ -11,8 +11,10 @@ exports.signup = (req,res) =>{
 
         return res.json({
             message : "success",
-            user
+            user,
+            
         })
+        console.log("done")
     })
 
 

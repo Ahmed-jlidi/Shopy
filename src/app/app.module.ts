@@ -19,7 +19,8 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { AddressComponent } from './address/address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     BrowserModule,
     AppRoutingModule,
     SlickCarouselModule,
+    FormsModule,ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
