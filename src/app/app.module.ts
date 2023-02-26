@@ -21,6 +21,15 @@ import { EditAddressComponent } from './edit-address/edit-address.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FaqsComponent } from './faqs/faqs.component';
+import { ErrComponent } from './err/err.component';
+import { AboutComponent } from './about/about.component';
+import { AddproductComponent } from './productuser/addproduct/addproduct.component';
+import { DisplayproductComponent } from './productuser/displayproduct/displayproduct.component';
+import { UpdateproductComponent } from './productuser/updateproduct/updateproduct.component';
+import { AdduserComponent } from './admin/user/adduser/adduser.component';
+import { DisplayuserComponent } from './admin/user/displayuser/displayuser.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +47,16 @@ import { HttpClientModule } from '@angular/common/http';
     ForgotPasswordComponent,
     ProfileDetailsComponent,
     AddressComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    FaqsComponent,
+    ErrComponent,
+    AboutComponent,
+    AddproductComponent,
+    DisplayproductComponent,
+    UpdateproductComponent,
+    AdduserComponent,
+    DisplayuserComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
