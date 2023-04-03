@@ -25,17 +25,6 @@
   
                   <div class="heading d-flex justify-content-between mb-5">
                     <p class="result-count mb-0"> Showing 1–6 of {{result}} results </p>
-                    <!-- <form class="ordering" method="get">
-                         <select name="orderby" class="orderby form-control border-dark rounded" aria-label="Shop order" >
-                            <option value="" selected="selected"> Default sorting </option>
-                            <option value=""> Sort by popularity </option>
-                            <option value=""> Sort by average rating </option>
-                            <option value=""> Sort by latest </option>
-                            <option value=""> Sort by price: low to high </option>
-                            <option value=""> Sort by price: high to low </option>
-                        </select> 
-                        <input type="hidden" name="paged" value="1">
-                    </form> -->
                 </div>
               </div>
             </div>
@@ -84,41 +73,18 @@
     <section class="widget widget-sorting mb-5 mt-5">
       <h3 class="widget-title h4 mb-4 fw-bold"> Default Sorting </h3>
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="size1">
-          Sort by Popularity
-        </label>
-      </div>
+      <form class="ordering" method="get">
+        <select name="orderby" class="orderby form-control border-dark rounded" aria-label="Shop order" >
+           <option value="" selected="selected"> Default sorting </option>
+           <option value=""> Sort by popularity </option>
+           <option value=""> Sort by average rating </option>
+           <option value=""> Sort by latest </option>
+           <option value=""> Sort by price: low to high </option>
+           <option value=""> Sort by price: high to low </option>
+       </select> 
+       <input type="hidden" name="paged" value="1">
+   </form> 
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="size2">
-          Sort by Average Rating
-        </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-        <label class="form-check-label" for="size3">
-          Sort by Latest
-        </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-        <label class="form-check-label" for="size4">
-          Sort by Price: Low to High
-        </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-        <label class="form-check-label" for="size5">
-          Sort by Price: High to Low 
-        </label>
-      </div>
-  
       <br>
       <button style="display: flex; border-radius: 8px; height: 40px;" type="button" class="btn btn-small"> Filter </button>
 
