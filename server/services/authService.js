@@ -19,6 +19,8 @@ exports.signup = asyncHandler(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    phone:req.body.phone,
+    profileImg:req.body.profileImg
   });
 
   // 2- Generate token
@@ -41,11 +43,11 @@ exports.login = asyncHandler(async (req, res, next) => {
   }
   // 3) generate token
   const token = createToken(user._id);
-
+  const ali = user._id
   // Delete password from response
   delete user._doc.password;
   // 4) send response to client side
-  res.status(200).json({ data: user, token });
+  res.status(200).json({ data: {user,ali}, token });
 });
 
 // @desc   make sure the user is logged in

@@ -44,8 +44,8 @@
               </div>
   
               <div class="product-hover-overlay">
-                  <a href="cart"><i class="tf-ion-android-cart"></i></a>
-                  <a href="favorites"><i class="tf-ion-ios-heart"></i></a>
+                  <a><i class="tf-ion-android-cart" (click)="cart(item.id)"></i></a>
+                  <a><i class="tf-ion-ios-heart" (click)="wish(item.id)"></i></a>
                 </div>
   
               <div class="product-info">

@@ -1,5 +1,6 @@
 const path = require('path');
 
+const Product = require('../server/models/productModel');
 
 const express = require('express');
 const dotenv = require('dotenv');
@@ -44,6 +45,24 @@ app.post(
   express.raw({ type: 'application/json' }),
   webhookCheckout
 );
+
+const router = express.Router();
+//const getProducts = async (req, res) => {
+  
+const getProducts = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    
+    const products = await Product.find({  createdBy: userId });
+    const productCount = products.length;
+    res.status(200).json({count : productCount,products});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+app.get('/products/:id', getProducts);
+
 
 // Middlewares
 app.use(express.json({ limit: '20kb' }));

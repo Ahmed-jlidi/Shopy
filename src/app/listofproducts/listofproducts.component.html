@@ -22,36 +22,36 @@
 <section class="section products-main">
     <div class="container">
           
-      <div class="row">
+      <div class="row" >
         <!-- Product1 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-            <div class="product border border-secondary">
+        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of arr;let index as index">
+            <div class="product border border-secondary" >
               <div class="product-wrap">
-                  <a href="product-single">
-                    <img class="img-fluid w-100 mb-3 img-first" src="assets/images/women1.jpg" alt="product-img" />
+                  <a [routerLink]="['/product-single/',item._id]">
+                    <img class="img-fluid w-100 mb-3 img-first" [src]="item.imageCover.substr(19)" alt="product-img" />
                   </a>
               </div>
   
               <div class="product-info">
-                  <h2 class="product-title h4 mb-0 fw-bold"> Coat </h2>
+                  <h2 class="product-title h4 mb-0 fw-bold"> {{item.title}} </h2>
                   <span class="price">
-                      329.10 DT
+                      {{item.price}} DT
                   </span>
                   <br>
-                  <a href="update-product">
+                   <!-- <a href="update-product">
                   <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Update </button>
-                  </a>
+                </a> -->
+                
+                
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm" (click)="deletep(index)"> Delete </button>
                   
-                  <a href="">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Delete </button>
-                  </a>
                   
               </div>
               <br>
           </div>
         </div>
 
-        <!-- Product2 -->
+        <!-- Product2
         <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product border border-secondary">
               <div class="product-wrap">
@@ -74,10 +74,10 @@
               </div>
               <br>
           </div>
-        </div>
+        </div> -->
   
         <!-- Product3 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product border border-secondary">
               <div class="product-wrap">
                   <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/women2.jpg" alt="product-img" /></a>
@@ -99,10 +99,10 @@
               </div>
               <br>
           </div>
-        </div>
+        </div> -->
   
         <!-- Product4 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
           <div class="product border border-secondary">
               <div class="product-wrap">
                   <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/women12.jpg" alt="product-img" /></a>
@@ -124,7 +124,7 @@
               </div>
               <br>
           </div>
-        </div>
+        </div> -->
   
       </div>
     </div>

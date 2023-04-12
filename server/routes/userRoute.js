@@ -35,7 +35,7 @@ router.put('/updateMe', updateLoggedUserValidator, updateLoggedUserData);
 router.delete('/deleteMe', deleteLoggedUserData);
 
 // Admin
-router.use(authService.allowedTo('admin', 'manager'));
+router.use(authService.allowedTo('admin', 'user'));
 router.put(
   '/changePassword/:id',
   changeUserPasswordValidator,

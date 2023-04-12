@@ -40,13 +40,13 @@ exports.createUserValidator = [
       return true;
     }),
 
-  check('passwordConfirm')
-    .notEmpty()
-    .withMessage('Password confirmation required'),
+  // check('passwordConfirm')
+  //   .notEmpty()
+  //   .withMessage('Password confirmation required'),
 
   check('phone')
     .optional()
-    .isMobilePhone(['ar-EG', 'ar-SA'])
+    .notEmpty()
     .withMessage('Invalid phone number only accepted Egy and SA Phone numbers'),
 
   check('profileImg').optional(),
@@ -82,8 +82,7 @@ exports.updateUserValidator = [
     ),
   check('phone')
     .optional()
-    .isMobilePhone(['ar-EG', 'ar-SA'])
-    .withMessage('Invalid phone number only accepted Egy and SA Phone numbers'),
+    ,
 
   check('profileImg').optional(),
   check('role').optional(),

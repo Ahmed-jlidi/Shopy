@@ -27,29 +27,53 @@ exports.addProductToCart = asyncHandler(async (req, res, next) => {
 
   if (!cart) {
     // create cart fot logged user with product
+    const cartItem = {
+      product: productId,
+      color,
+      quantity: 1,
+      price: product.price,
+      description:product.description,
+      title:product.title,
+      picture:product.imageCover,
+    };
     cart = await Cart.create({
       user: req.user._id,
-      cartItems: [{ product: productId, color, price: product.price }],
+      cartItems: [cartItem],
+      totalCartPrice: cartItem.price,
     });
   } else {
     // product exist in cart, update product quantity
-    const productIndex = cart.cartItems.findIndex(
-      (item) => item.product.toString() === productId && item.color === color
-    );
+    const productIndex = cart.cartItems.findIndex((item) => {
+      if (item.product && item.product.toString() === productId && item.color === color) {
+        return true;
+      }
+      return false;
+    });
 
     if (productIndex > -1) {
       const cartItem = cart.cartItems[productIndex];
       cartItem.quantity += 1;
+      cartItem.price =product.price;
 
       cart.cartItems[productIndex] = cartItem;
     } else {
       // product not exist in cart,  push product to cartItems array
-      cart.cartItems.push({ product: productId, color, price: product.price });
+      const cartItem = {
+        product: productId,
+        color,
+        quantity: 1,
+        price: product.price,
+        description:product.description,
+      title:product.title,
+      picture:product.imageCover,
+      };
+      cart.cartItems.push(cartItem);
     }
+
+    // Calculate total cart price
+    calcTotalCartPrice(cart);
   }
 
-  // Calculate total cart price
-  calcTotalCartPrice(cart);
   await cart.save();
 
   res.status(200).json({
@@ -59,6 +83,7 @@ exports.addProductToCart = asyncHandler(async (req, res, next) => {
     data: cart,
   });
 });
+
 
 // @desc    Get logged user cart
 // @route   GET /api/v1/cart

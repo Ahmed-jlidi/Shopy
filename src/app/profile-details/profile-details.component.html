@@ -15,61 +15,35 @@
 
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
-                  <form>
+                  <form [formGroup]="myForm" (ngSubmit)="updates()">
                     <div class="d-flex align-items-center mb-3 pb-1 justify-content-center">
 
                       <div class="text-center heading">
-                        <h2 class="mb-2 display-4 fw-bold"> Edit Profile </h2>
+                        <h2 class="mb-2 display-4 fw-bold"> Edit Password </h2>
                       </div>
   
                     </div>
   
-                    <div class="tab-pane fade show active" id="settings" role="tabpanel" >
+                    <!-- <div class="tab-pane fade show active" id="settings" role="tabpanel" >
                       <div class="acccount-settings">
-                        <h4 class="mb-4 fw-bold">Account Information</h4>
-                        <form action="#">
-                          <div class="form-row">
-                            
-                              <div class="form-outline mb-4">
-                                <label class="form-label" for="form2Example17"> First Name </label>
-                                <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
-                              </div>
+                        <h4 class="mb-4 fw-bold">Account Information</h4> -->
 
-                              <div class="form-outline mb-4">
-                                <label class="form-label" for="form2Example17"> Last Name </label>
-                                <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
-                              </div>
-                          </div>
           
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example17"> Display Name </label>
-                            <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
-                            <p class="mt-2"> This will be how your name will be displayed in the account section and in reviews</p>
-                          </div>
-                         
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example17"> Email Address </label>
-                            <input type="email" id="form2Example17" class="form-control form-control-lg rounded" />
-                          </div>
-                  
-                        </form>
-          
-                        <form action="#" class="mt-5">
                           <h4 class="fw-bold"> Password Change</h4>
 
                           <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example17"> Current password </label>
-                            <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
+                            <input type="password" id="form2Example17" class="form-control form-control-lg rounded" formControlName="currentPassword"/>
                           </div>
 
                           <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example17"> New password </label>
-                            <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
+                            <input type="password" id="form2Example17" class="form-control form-control-lg rounded" formControlName="password"/>
                           </div>
 
                           <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example17"> Confirm password </label>
-                            <input type="text" id="form2Example17" class="form-control form-control-lg rounded" />
+                            <input type="password" id="form2Example17" class="form-control form-control-lg rounded" formControlName="passwordConfirm"/>
                           </div>
 
                           <br>
@@ -78,9 +52,9 @@
                                <button style="display: center; border-radius: 8px;" type="submit" class="btn"> Save Changes </button>
                           </div>
                           </div>
-                        </form>
-                      </div>
-                    </div>
+                        
+                      <!-- </div>
+                    </div> -->
   
                   </form>
   

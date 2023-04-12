@@ -12,14 +12,17 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
-  uploadProductImages,
-  resizeProductImages,
+  //uploadProductImages,
+ // resizeProductImages,
 } = require('../services/productService');
 const authService = require('../services/authService');
 const reviewsRoute = require('./reviewRoute');
+const Product = require('../models/productModel');
 
 const router = express.Router();
 
+
+module.exports = router;
 // POST   /products/jkshjhsdjh2332n/reviews
 // GET    /products/jkshjhsdjh2332n/reviews
 // GET    /products/jkshjhsdjh2332n/reviews/87487sfww3
@@ -30,9 +33,9 @@ router
   .get(getProducts)
   .post(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
-    uploadProductImages,
-    resizeProductImages,
+    authService.allowedTo('admin', 'user'),
+    //uploadProductImages,
+   // resizeProductImages,
     createProductValidator,
     createProduct
   );
@@ -41,15 +44,15 @@ router
   .get(getProductValidator, getProduct)
   .put(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
-    uploadProductImages,
-    resizeProductImages,
+    authService.allowedTo('admin', 'user'),
+   // uploadProductImages,
+   // resizeProductImages,
     updateProductValidator,
     updateProduct
   )
   .delete(
     authService.protect,
-    authService.allowedTo('admin'),
+    authService.allowedTo('admin','user'),
     deleteProductValidator,
     deleteProduct
   );

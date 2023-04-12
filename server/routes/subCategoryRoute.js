@@ -26,7 +26,7 @@ router
   .route('/')
   .post(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
+    authService.allowedTo('admin', 'user'),
     setCategoryIdToBody,
     createSubCategoryValidator,
     createSubCategory
@@ -37,7 +37,7 @@ router
   .get(getSubCategoryValidator, getSubCategory)
   .put(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
+    authService.allowedTo('admin', 'user'),
     updateSubCategoryValidator,
     updateSubCategory
   )

@@ -68,6 +68,11 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -75,6 +80,7 @@ const productSchema = new mongoose.Schema(
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
   }
+  
 );
 
 productSchema.virtual('reviews', {

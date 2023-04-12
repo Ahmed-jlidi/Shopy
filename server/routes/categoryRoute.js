@@ -31,7 +31,7 @@ router
   .get(getCategories)
   .post(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
+    authService.allowedTo('admin', 'user'),
     uploadCategoryImage,
     resizeImage,
     createCategoryValidator,
@@ -42,7 +42,7 @@ router
   .get(getCategoryValidator, getCategory)
   .put(
     authService.protect,
-    authService.allowedTo('admin', 'manager'),
+    authService.allowedTo('admin', 'user'),
     uploadCategoryImage,
     resizeImage,
     updateCategoryValidator,

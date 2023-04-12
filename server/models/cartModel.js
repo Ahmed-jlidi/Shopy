@@ -14,6 +14,9 @@ const cartSchema = new mongoose.Schema(
         },
         color: String,
         price: Number,
+        title:String,
+        description:String,
+        picture:String
       },
     ],
     totalCartPrice: Number,

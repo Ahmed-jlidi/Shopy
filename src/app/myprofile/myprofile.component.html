@@ -9,23 +9,23 @@
             <div class="row g-0">
               <div class="col-md-4 gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                <img [src]="arr.profileImg"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                 <h5> Nom Prenom </h5>
-                <p> Nickname </p>
+                <p> {{arr.name}} </p>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8" >
                 <div class="card-body p-4">
                   <a href="profile-details"> <div class="text-black fw-bold"> Information <span class="bi bi-pencil-square me-2" style="margin-left: 8px;"></span> </div> </a>           
                   <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
+                  <div class="row pt-1" >
+                    <div class="col-6 mb-3" >
                       <h6>Email</h6>
-                      <p class="text-muted">info@example.com</p>
+                      <p class="text-muted">{{arr.email}}</p>
                     </div>
                     <div class="col-6 mb-3">
                       <h6>Phone</h6>
-                      <p class="text-muted">12 345 678</p>
+                      <p class="text-muted">{{arr.phone}}</p>
                     </div>
                   </div>
                   <div class="fw-bold"> My Products </div>
