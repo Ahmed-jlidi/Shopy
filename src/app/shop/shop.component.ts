@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-shop',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-constructor(private service:AuthService,private route: ActivatedRoute){}
+constructor(private service:AuthService,private route: ActivatedRoute,private cookie:CookieService){}
 
   ngOnInit(): void {
     this.getdata()
@@ -50,7 +51,9 @@ constructor(private service:AuthService,private route: ActivatedRoute){}
   })
  }
  wish(id:any){
-  this.service.addfavorit(id).subscribe((data:any)=>{
+  const userId=this.cookie.get('user')
+  const data = {userId:JSON.parse(userId)._id,productId:id}
+  this.service.addfavorit(data).subscribe((data:any)=>{
     console.log(data)
   })
  }

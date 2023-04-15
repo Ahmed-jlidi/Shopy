@@ -1,7 +1,7 @@
 const path = require('path');
 
 const Product = require('../server/models/productModel');
-
+const User = require('./models/userModel');
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
@@ -61,7 +61,49 @@ const getProducts = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
-app.get('/products/:id', getProducts);
+app.get('/products/fav/:id', getProducts);
+// Add product to user's favorites
+const addFavoriteProduct = async (req, res) => {
+  try {
+    const userId = req.body._id
+    const productId = req.body._id
+
+
+    const user = await User.findById(userId);
+    const product = await Product.findById(productId);
+    if (!user || !product) {
+      throw new Error('User or product not found');
+    }
+    user.wishlist.push(product);
+    await user.save();
+    return user;
+  } catch (error) {
+    console.error(error.message);
+    throw new Error('Failed to add product to user wishlist');
+  }
+};
+app.post('/favorites',addFavoriteProduct)
+
+const getAllFavoriteProducts = async (userId) => {
+  try {
+    const user = await User.findById(userId).populate('wishlist');
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user.wishlist;
+  } catch (error) {
+    console.error(error.message);
+    throw new Error('Failed to get user wishlist');
+  }
+};
+app.get('/favorites/:userId',getAllFavoriteProducts)
+
+
+
+// Get all user's favorite products
+
+
+
 
 
 // Middlewares
@@ -111,6 +153,17 @@ const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT, () => {
   console.log(`App running running on port ${PORT}`);
 });
+
+// favorit add and get 
+
+
+
+
+
+
+
+
+
 
 // Handle rejection outside express
 process.on('unhandledRejection', (err) => {

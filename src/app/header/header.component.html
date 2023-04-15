@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-black w-100 navigation fixed-top" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black w-100 navigation fixed-top" id="navbar">
   <div class="container">
     
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" routerLink="/">
       <img src="./assets/images/logoo.jpg" width="50" class="d-inline-block align-top mr-2 rounded-circle">
       <span class="font-weight-bold fs-1 h1 text-light"> Shoppy </span>
     </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+    <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-target="#main-navbar"
       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,23 +14,23 @@
     <div class="collapse navbar-collapse " id="main-navbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active">
-          <a class="nav-link text-light" href="/"> Home </a>
+          <a class="nav-link text-light" routerLink="/"> Home </a>
         </li>
 
         <li class="nav-item dropdown dropdown-slide">
-          <a class="nav-link dropdown-toggle text-light" href="shop" id="navbarDropdown3" role="button" data-delay="350"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-light" routerLink="/shop" id="navbarDropdown3" role="button" data-delay="350"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Shop
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-            <li><a href="shop">Our Shop</a></li>
-            <li><a href="cart">Cart</a></li>
+            <li><a routerLink="/shop">Our Shop</a></li>
+            <li><a routerLink="/cart">Cart</a></li>
           </ul>
         </li>
 
          <li class="nav-item dropdown dropdown-slide">
           <a class="nav-link dropdown-toggle text-light" href="about" id="navbarDropdown4" role="button" data-delay="350"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About
           </a>
           <ul class="dropdown-menu text-light" aria-labelledby="navbarDropdown4">
@@ -48,7 +48,7 @@
 
       <!-- Cart -->
       <li class="dropdown cart-nav dropdown-slide list-inline-item">
-        <a href="cart" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
+        <a routerLink="/cart" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
           <i class="tf-ion-android-cart"></i>
         </a>
         <div class="dropdown-menu cart-dropdown">
@@ -71,7 +71,7 @@
         </div>
       <!-- new account -->
       <li class="dropdown cart-nav dropdown-slide list-inline-item">
-        <a href="#" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
+        <a href="#" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
           <i class="tf-ion-android-lock" style="justify-content: center;"></i>
         </a>
         <ul class="dropdown-menu cart-dropdown">
@@ -107,7 +107,7 @@
 
       
       <!-- User -->
-      <!-- <a href="#" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
+      <!-- <a href="#" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
         <i class="tf-ion-ios-person mr-3"></i>
       </a> -->
       

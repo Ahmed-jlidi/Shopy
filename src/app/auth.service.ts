@@ -79,13 +79,24 @@ export class AuthService {
 
     
   }
-  addfavorit(productId:any):Observable<any>{
-    const body = { productId };
+  addfavorit(data:any):Observable<any>{
+    
 
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
-    return this.http.post<any>("http://localhost:5000/api/v1/wishlist",productId,{headers})
+    return this.http.post<any>("http://localhost:5000/api/v1/wishlist",data,{headers})
 
     
   }
-  
+  getfav():Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+    return this.http.get<any>("http://localhost:5000/api/v1/wishlist",{headers})
+
+  }
+
+  deletefav(id:any):Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+    return this.http.delete<any>("http://localhost:5000/api/v1/wishlist/"+id,{headers})
+  }
+
+
 }

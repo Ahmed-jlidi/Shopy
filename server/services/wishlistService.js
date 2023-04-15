@@ -1,26 +1,50 @@
 const asyncHandler = require('express-async-handler');
 
 const User = require('../models/userModel');
+const Product = require('../models/productModel');
+
 
 // @desc    Add product to wishlist
 // @route   POST /api/v1/wishlist
 // @access  Protected/User
 exports.addProductToWishlist = asyncHandler(async (req, res, next) => {
-  // $addToSet => add productId to wishlist array if productId not exist
-  const user = await User.findByIdAndUpdate(
-    req.user._id,
-    {
-      $addToSet: { wishlist: req.body.productId },
-    },
-    { new: true }
-  );
+  try {
+    const productId = req.body.productId;
+    const product = await Product.findById(productId);
 
-  res.status(200).json({
-    status: 'success',
-    message: 'Product added successfully to your wishlist.',
-    data: user.wishlist,
-  });
+    if (!product) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Product not found.',
+      });
+    }
+
+    if (!req.user || !req.user._id) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'User ID is missing.',
+      });
+    }
+
+    // $addToSet => add productId to wishlist array if productId not exist
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $addToSet: { wishlist: productId },
+      },
+      { new: true }
+    ).populate('wishlist', '-__v');
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Product added successfully to your wishlist.',
+      data: product,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
+
 
 // @desc    Remove product from wishlist
 // @route   DELETE /api/v1/wishlist/:productId
