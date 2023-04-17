@@ -13,7 +13,7 @@ exports.deleteOne = (Model) =>
 
     // Trigger "remove" event when update document
     document.remove();
-    res.status(204).send({message:"Successfully deleted"});
+    res.status(200).send({message:"Successfully deleted"});
   });
 
 exports.updateOne = (Model) =>

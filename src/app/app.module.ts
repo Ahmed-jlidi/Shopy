@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,12 +52,14 @@ import { ShirtsMenComponent } from './shirts-men/shirts-men.component';
 import { SweatersMenComponent } from './sweaters-men/sweaters-men.component';
 import { TrousersMenComponent } from './trousers-men/trousers-men.component';
 import { HeadersComponent } from './admin/headers/headers.component';
-
+import   {AddproductsComponent} from './admin/product/addproduct/addproduct.component' 
+import { DisplayproductsComponent } from './admin/product/displayproduct/displayproduct.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddproductsComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -73,6 +76,7 @@ import { HeadersComponent } from './admin/headers/headers.component';
     ErrComponent,
     AboutComponent,
     AddproductComponent,
+    DisplayproductsComponent,
     DisplayproductComponent,
     UpdateproductComponent,
     AdduserComponent,
@@ -101,6 +105,7 @@ import { HeadersComponent } from './admin/headers/headers.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     SlickCarouselModule,
     FormsModule,ReactiveFormsModule,

@@ -24,12 +24,12 @@ export class LoginComponent {
   })
   onSubmit(){
     this.authService.signin(this.myForm.value).subscribe((data:any)=>{
-      console.log(data)
+      console.log(data.data.user.role)
       let expireDate = new Date();
-      expireDate.setDate(expireDate.getDate() + 7); 
+      expireDate.setDate(expireDate.getDate() + 7 ); //for 24h we user this (24 * 60 * 60 * 1000)
       this.cookieService.set('token', data.token, expireDate);
       this.cookieService.set('user',JSON.stringify(data.data.user))
-     console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),"how zok om l user "+ " "+JSON.stringify(data.data.user))
+     console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),+" 'user data'  "+JSON.stringify(data.data.user))
     })
 
 

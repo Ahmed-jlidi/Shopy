@@ -99,84 +99,40 @@
     <thead>
       <tr>
         <th scope="col"><div class="text-black">ID</div></th>
+
         <th scope="col"><div class="text-black">Title</div></th>
         <th scope="col"><div class="text-black">Description</div></th>
-        <th scope="col"><div class="text-black">Category</div></th>
-        <th scope="col"><div class="text-black">SubCategory</div></th>
+        <!-- <th scope="col"><div class="text-black">Category</div></th> -->
+        <!-- <th scope="col"><div class="text-black">SubCategory</div></th> -->
         <th scope="col"><div class="text-black" style="width: 50px;">Price</div></th>
         <th scope="col"><div class="text-black" style="width: 200px;">Action</div></th>
     </tr>
     </thead>
     <tbody >
-      <tr>
-        <td><div class="text-black">1</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a  new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Women</div></td>
-        <td><div class="text-black">Jeans</div></td>
-        <td><div class="text-black">50 DT</div></td>
+      <tr *ngFor="let item of arr;let index=index;let i as index">
+        <td><div class="text-black">{{index+1}}</div></td>
+        <td><div class="text-black">{{item.title}}</div></td>
+        <td><div class="text-black">{{item.description}}</div></td>
+        <!-- <td><div class="text-black">{{item.category}}</div></td> -->
+        <td><div class="text-black">{{item.price}} DT</div></td>
         <td style="display: flex; justify-content: space-around;"> 
-          <a href="updateproduct">
+          <a [routerLink]="['/updateproduct/',item.id]">
             <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
           </a>
-          <button class="btn btn-danger rounded">delete</button></td>
+          <button class="btn btn-danger rounded" (click)="deletes(i)">delete</button>
+        </td>
+           
+            
+            
+            
+            
+            
+            
+
+
       </tr>
 
-      <tr>
-        <td><div class="text-black">2</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a  new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Women</div></td>
-        <td><div class="text-black">Jeans</div></td>
-        <td><div class="text-black">50 DT</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-          <a href="updateproduct">
-            <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-          </a>
-          <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-
-      <tr>
-        <td><div class="text-black">3</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a  new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Women</div></td>
-        <td><div class="text-black">Jeans</div></td>
-        <td><div class="text-black">50 DT</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-          <a href="updateproduct">
-            <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-          </a>
-          <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-
-      <tr>
-        <td><div class="text-black">4</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a  new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Women</div></td>
-        <td><div class="text-black">Jeans</div></td>
-        <td><div class="text-black">50 DT</div></td>
-        <td style="display: flex; justify-content: space-around;">
-          <a href="updateproduct">
-            <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-          </a>
-          <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-
-      <tr>
-        <td><div class="text-black">5</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a  new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Women</div></td>
-        <td><div class="text-black">Jeans</div></td>
-        <td><div class="text-black">50 DT</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-          <a href="updateproduct">
-            <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-          </a>
-          <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
+      
      
     </tbody>
   </table>

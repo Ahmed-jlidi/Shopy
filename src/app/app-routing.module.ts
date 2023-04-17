@@ -28,8 +28,8 @@ import { HeadersComponent } from './admin/headers/headers.component';
 import { AddcategoriesComponent } from './admin/categories/addcategories/addcategories.component';
 import { DisplaycategoriesComponent } from './admin/categories/displaycategories/displaycategories.component';
 import { UpdatecategoriesComponent } from './admin/categories/updatecategories/updatecategories.component';
-import { AddproductComponent } from './admin/product/addproduct/addproduct.component';
-import { DisplayproductComponent } from './admin/product/displayproduct/displayproduct.component';
+import { AddproductsComponent } from './admin/product/addproduct/addproduct.component';
+import { DisplayproductsComponent } from './admin/product/displayproduct/displayproduct.component';
 import { UpdateproductComponent } from './admin/product/updateproduct/updateproduct.component';
 import { AdduserComponent } from './admin/user/adduser/adduser.component';
 import { DisplayuserComponent } from './admin/user/displayuser/displayuser.component';
@@ -145,13 +145,13 @@ const routes: Routes = [
   },
   //admin.product
   {
-    path:"addproduct",component:AddproductComponent
+    path:"addproduct",component:AddproductsComponent
   },
   {
-    path:"displayproduct",component:DisplayproductComponent
+    path:"displayproduct",component:DisplayproductsComponent
   },
   {
-    path:"updateproduct",component:UpdateproductComponent
+    path:"updateproduct/:id",component:UpdateproductComponent
   },
   //admin.user
   {

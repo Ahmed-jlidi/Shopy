@@ -100,59 +100,39 @@
         <table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 130px;">
             <thead>
               <tr>
-                <th scope="col"><div class="text-black"> ID </div></th>
+                <th scope="col"><div class="text-black">ID</div></th>
                 <th scope="col"><div class="text-black">Username</div></th>
                 <th scope="col"><div class="text-black">Email</div></th>
+                <th scope="col"><div class="text-black">Role</div></th>
                 <th scope="col"><div class="text-black">Action</div></th>
             </tr>
             </thead>
             <tbody >
-              <tr>
-                <td scope="col"><div class="text-black">1</div></td>
-                <td scope="col"><div class="text-black">Chouaib Amdouni</div></td>
-                <td scope="col"><div class="text-black">chouaib@gmail.com</div></td>
-                <td><button class="btn btn-danger rounded btn-small">delete</button></td>
+              <tr *ngFor="let item of arr;let index as index ;let i = index">
+                <td scope="col"><div class="text-black">{{i+1}}</div></td>
+
+                <td scope="col"><div class="text-black">{{item.name}}</div></td>
+                <td scope="col"><div class="text-black">{{item.email}}</div></td>
+                <td scope="col"><div class="text-black">{{item.role}}</div></td>
+                <td><button class="btn btn-danger rounded btn-small" type="submit" (click)="deleteuser(index)">delete</button></td>
+                
             </tr>
-               <tr>
-        
-                   <td scope="col"><div class="text-black">2</div></td>
-                   <td scope="col"><div class="text-black">Nassim Maaoui</div></td>
-                   <td scope="col"><div class="text-black">nassimmaaoui@gmail.com</div></td>
-                   <td><button class="btn btn-danger rounded btn-small">delete</button></td>
-                   
-               </tr>
-        
-              <tr>
-                <td scope="col"><div class="text-black">3</div></td>
-                <td scope="col"><div class="text-black">Fedia Gharbi</div></td>
-                <td scope="col"><div class="text-black">fediagharbi@gmail.com</div></td>
-                <td><button class="btn btn-danger rounded btn-small">delete</button></td>
-              </tr>
-              <tr>
-                <td scope="col"><div class="text-black">4</div></td>
-                <td scope="col"><div class="text-black">Rihem Jarrahi</div></td>
-                <td scope="col"><div class="text-black">rihem@gmail.com</div></td>
-                <td><button class="btn btn-danger rounded btn-small">delete</button></td>
-              </tr>
-               <tr>
-               <td scope="col"><div class="text-black">5</div></td>
-               <td scope="col"><div class="text-black">Ahmed Jlidi</div></td>
-               <td scope="col"><div class="text-black">bo7midjlidi@gmail.com</div></td>
-               <td><button class="btn btn-danger rounded btn-small">delete</button></td>
-        
-               </tr>
-        
-              
-            </tbody>
-          </table>
+            
+            
+        </tbody>
+    </table>
           <div>
             
-          </div>
         </div>
+        
+
+         
     </div>
+    
+</div>
 </div> 
 </div>
- 
+
 
 
 

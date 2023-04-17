@@ -21,11 +21,6 @@ export class AjoutProduitComponent implements OnInit{
 
   ngOnInit(): void {
 
-
-
-
-
-
     this.service.getallsubcat().subscribe((data)=>{
       console.log(data)
       for (let i = 0; i < data.results-5; i++) {

@@ -97,6 +97,20 @@ export class AuthService {
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
     return this.http.delete<any>("http://localhost:5000/api/v1/wishlist/"+id,{headers})
   }
+  adduser(data:any):Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+    return this.http.post<any>("http://localhost:5000/api/v1/users",data,{headers})
+  }
+  displayuser():Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+    return this.http.get<any>("http://localhost:5000/api/v1/users",{headers})
+  }
+  deleteuser(id:any):Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+    return this.http.delete<any>("http://localhost:5000/api/v1/users/"+id,{headers})
+  }
+  
+
 
 
 }
