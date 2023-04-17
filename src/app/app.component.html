@@ -1,10 +1,9 @@
-<!-- <div *ngIf="checknavbar(); else loggedOut">
-<app-headers></app-headers>
+<div *ngIf="checknavbar(); else loggedOut">
+    <app-headers></app-headers>
 </div>
-<ng-template #loggedOut> -->
-<app-headers></app-headers>
-<!-- </ng-template> -->
+<ng-template #loggedOut>
+<app-header></app-header>
+</ng-template>
 
 <router-outlet></router-outlet>
-<button (click)="checknavbar()">click hiii </button>
 <!-- <app-footer></app-footer> -->

@@ -8,21 +8,23 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent implements OnInit {
   title = 'angularshop';
+  test=false
   user:any
   constructor(private cookie:CookieService){}
   ngOnInit(): void {
-    
+    console.log(this.user.role)
   }
-
+  
   
   
   checknavbar(){
     this.user=JSON.parse(this.cookie.get("user"))
-    // if(this.user.role==="admin"){
-    //   return false
-    // }else{
-    //   return true
-    // }
+
+    if(this.user.role==="admin"){
+      return true
+    }else{
+      return false
+    }
     
   }
   

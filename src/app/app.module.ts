@@ -26,7 +26,7 @@ import { ErrComponent } from './err/err.component';
 import { AboutComponent } from './about/about.component';
 import { AddproductComponent } from './productuser/addproduct/addproduct.component';
 import { DisplayproductComponent } from './productuser/displayproduct/displayproduct.component';
-import { UpdateproductComponent } from './productuser/updateproduct/updateproduct.component';
+import { UpdateproductsComponent } from './admin/product/updateproduct/updateproduct.component';
 import { AdduserComponent } from './admin/user/adduser/adduser.component';
 import { DisplayuserComponent } from './admin/user/displayuser/displayuser.component';
 import { ContactComponent } from './contact/contact.component';
@@ -54,6 +54,9 @@ import { TrousersMenComponent } from './trousers-men/trousers-men.component';
 import { HeadersComponent } from './admin/headers/headers.component';
 import   {AddproductsComponent} from './admin/product/addproduct/addproduct.component' 
 import { DisplayproductsComponent } from './admin/product/displayproduct/displayproduct.component';
+import { AddcategoriessComponent } from './admin/categories/addcategories/addcategories.component';
+import { DisplaycategoriessComponent } from './admin/categories/displaycategories/displaycategories.component';
+import { UpdatecategoriessComponent } from './admin/categories/updatecategories/updatecategories.component';
 
 
 @NgModule({
@@ -78,7 +81,7 @@ import { DisplayproductsComponent } from './admin/product/displayproduct/display
     AddproductComponent,
     DisplayproductsComponent,
     DisplayproductComponent,
-    UpdateproductComponent,
+    UpdateproductsComponent,
     AdduserComponent,
     DisplayuserComponent,
     ContactComponent,
@@ -97,10 +100,13 @@ import { DisplayproductsComponent } from './admin/product/displayproduct/display
     SweatersWomenComponent,
     TrousersWomenComponent,
     AccessoriesMenComponent,
+    UpdatecategoriessComponent,
+    DisplaycategoriessComponent,
     CoatsMenComponent,
     ShirtsMenComponent,
     SweatersMenComponent,
-    TrousersMenComponent,
+    TrousersMenComponent,AddcategoriessComponent,
+
     HeadersComponent
   ],
   imports: [

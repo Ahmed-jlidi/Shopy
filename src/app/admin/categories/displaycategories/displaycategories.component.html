@@ -95,59 +95,35 @@
           
           </div> 
   
-<div class="col-md-10">
-<table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 150px;">
-    <thead>
-      <tr>
-        <th scope="col"><div class="text-black">ID</div></th>
-        <th scope="col"><div class="text-black">Categorie Name</div></th>
-        <th scope="col"><div class="text-black">Categories Type</div></th>
-        <th scope="col"><div class="text-black">SubCategory</div></th>
-        <th scope="col"><div class="text-black" style="width: 200px;">Action</div></th>
-    </tr>
-    </thead>
-    <tbody >
-      <tr>
-        <td><div class="text-black">1</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Trouser</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-            <a href="admin/updatecategories">
-                <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-              </a>
-              <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-
-      <tr>
-        <td><div class="text-black">2</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Trouser</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-            <a href="admin/updatecategories">
-                <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-              </a>
-              <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-
-      <tr>
-        <td><div class="text-black">3</div></td>
-        <td><div class="text-black">new collection jeans</div></td>
-        <td><div class="text-black">this is a new collection jeans for supporting turkey</div></td>
-        <td><div class="text-black">Trouser</div></td>
-        <td style="display: flex; justify-content: space-around;"> 
-            <a href="admin/updatecategories">
-                <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
-              </a>
-              <button class="btn btn-danger rounded">delete</button></td>
-      </tr>
-      
-      </tbody>
-      
-</table>
-
-</div>
+<form>
+    <div class="col-md-10">
+        <table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 150px;">
+            <thead>
+              <tr>
+                <th scope="col"><div class="text-black">ID</div></th>
+                <th scope="col"><div class="text-black">Categorie Name</div></th>
+                <th scope="col"><div class="text-black" style="width: 200px;">Action</div></th>
+            </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let item of arr;let index=index;let i as index">
+                <td><div class="text-black">{{index+1}}</div></td>
+                <td><div class="text-black">{{item.name}}</div></td>
+              
+                <td style="display: flex; justify-content: space-around;"> 
+                    <a  [routerLink]="['/admin/updatecategories/',item._id]">
+                        <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-info"> Update </button>
+                      </a>
+                      <button class="btn btn-danger rounded" (click)="deleteCat(i)">delete</button></td>
+              </tr>
+        
+             
+              </tbody>
+              
+        </table>
+        
+        </div>
+</form>
 </div>
 </div> 
 </div>

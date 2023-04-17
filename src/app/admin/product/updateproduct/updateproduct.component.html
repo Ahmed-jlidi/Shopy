@@ -95,61 +95,56 @@
         
         </div>  
 
-<div class="col-md-10">
-<div style="display: flex;justify-content: center; margin-top: 30px;">
-    <div class="card" style="width: 50rem; border-color: black;">
-        <div class="card-body">
-          <h5 style="text-align: center;" class="card-title fs-4 mt-4">Update Product</h5>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Title</label>
-            <input type="text" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Product Title">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Description</label>
-            <input type="text" class="form-control rounded mt-2"  style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Description">
-          </div>
+<form [formGroup]="myForm" (ngSubmit)="validerr()">
+  <div class="col-md-10">
+    <div style="display: flex;justify-content: center; margin-top: 30px;">
+        <div class="card" style="width: 50rem; border-color: black;">
+            <div class="card-body">
+              <h5 style="text-align: center;" class="card-title fs-4 mt-4">Update Product</h5>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Title</label>
+                <input type="text" formControlName="title"  class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Product Title">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Description</label>
+                <textarea type="text" formControlName="description" class="form-control rounded mt-2"  style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Description"></textarea>
+              </div>
+             
+             <div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Category</label>
+                <select formControlName="category" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                 <option class="mystyle">Select Category</option>
+                  <option *ngFor="let item of cat" [value]="item._id">{{item.name}}</option>
+                </select>
+            </div>
          
-          <div class="mb-3">
-            <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Category</label>
-            <br>
-            <div class="form-check form-check-inline" style="margin-left: 50px;">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="margin-top: 5px;"/>
-              <label class="form-check-label" for="inlineCheckbox1">Women</label>
+            <div class="mb-3">
+                
+                <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">SubCategory</label>
+                <select formControlName="subcategories" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                 <option class="mystyle">Select Category</option>
+                 <option  *ngFor="let item of subcF;let index=index" class="mystyle" [value]="item[index]._id">{{item[index].name}}</option>
+             
+                </select>
             </div>
-           
-            <div class="form-check form-check-inline" style="margin-left: 50px;">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" style="margin-top: 5px;"/>
-              <label class="form-check-label" for="inlineCheckbox2">Men</label>
+             </div>
+    
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Price</label>
+                <input type="number" formControlName="price" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Price">
+              </div>
+              <br>
+              <div class="text-center">
+              <button style="display: center; border-radius: 8px ;  background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Update Product</button>
+              </div>
+    
+              <br>
             </div>
-          
-        </div>
-     
-        <div class="mb-3">
-            <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">SubCategory</label>
-            <select class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
-             <option class="mystyle">Select Category</option>
-             <option class="mystyle" value="1">Shirts</option>
-             <option class="mystyle" value="2">Sweaters</option>
-             <option class="mystyle" value="3">Trousers</option>
-             <option class="mystyle" value="4">Coats</option>
-             <option class="mystyle" value="5">Accessories</option>
-            </select>
-        </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Price</label>
-            <input type="text" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Price">
           </div>
-          <br>
-          <div class="text-center">
-          <button style="display: center; border-radius: 8px ;  background-color: #fb5c42; color: #ffffff;" type="button" class="btn rounded">Update Product</button>
-          </div>
-
-          <br>
-        </div>
       </div>
-  </div>
-  </div>
+      </div>
+</form>
 </div>
 </div> 
 </div>

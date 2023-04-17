@@ -160,7 +160,12 @@ const server = app.listen(PORT, () => {
 
 
 
+const SubCategoryModel = require('./models/subCategoryModel');
+const CategoryModel = require('./models/categoryModel');
 
+// assuming that you've already set up your database connection with mongoose
+
+// define the route with a parameter for the category ID
 
 
 

@@ -25,12 +25,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { HeadersComponent } from './admin/headers/headers.component';
-import { AddcategoriesComponent } from './admin/categories/addcategories/addcategories.component';
-import { DisplaycategoriesComponent } from './admin/categories/displaycategories/displaycategories.component';
-import { UpdatecategoriesComponent } from './admin/categories/updatecategories/updatecategories.component';
+import { AddcategoriessComponent } from './admin/categories/addcategories/addcategories.component';
+import { DisplaycategoriessComponent } from './admin/categories/displaycategories/displaycategories.component';
+import { UpdatecategoriessComponent } from './admin/categories/updatecategories/updatecategories.component';
 import { AddproductsComponent } from './admin/product/addproduct/addproduct.component';
 import { DisplayproductsComponent } from './admin/product/displayproduct/displayproduct.component';
-import { UpdateproductComponent } from './admin/product/updateproduct/updateproduct.component';
+import { UpdateproductsComponent } from './admin/product/updateproduct/updateproduct.component';
 import { AdduserComponent } from './admin/user/adduser/adduser.component';
 import { DisplayuserComponent } from './admin/user/displayuser/displayuser.component';
 import { OrdersManagementComponent } from './admin/orders-management/orders-management.component';
@@ -128,13 +128,13 @@ const routes: Routes = [
   },
   //admin.categories
   {
-    path:"admin/addcategories",component:AddcategoriesComponent
+    path:"admin/addcategories",component:AddcategoriessComponent
   },
   {
-    path:"admin/displaycategories",component:DisplaycategoriesComponent
+    path:"admin/displaycategories",component:DisplaycategoriessComponent
   },
   {
-    path:"admin/updatecategories",component:UpdatecategoriesComponent
+    path:"admin/updatecategories/:id",component:UpdatecategoriessComponent
   },
   //admin.subcategories
   {
@@ -151,7 +151,7 @@ const routes: Routes = [
     path:"displayproduct",component:DisplayproductsComponent
   },
   {
-    path:"updateproduct/:id",component:UpdateproductComponent
+    path:"updateproduct/:id",component:UpdateproductsComponent
   },
   //admin.user
   {
