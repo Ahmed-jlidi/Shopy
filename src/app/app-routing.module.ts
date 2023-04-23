@@ -190,7 +190,7 @@ const routes: Routes = [
      path:"coats-men",component:CoatsMenComponent
    },
    {
-     path:"shirts-men",component:ShirtsMenComponent
+     path:"filter/:id",component:ShirtsMenComponent
    },
    {
      path:"sweaters-men",component:SweatersMenComponent

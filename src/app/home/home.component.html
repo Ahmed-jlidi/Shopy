@@ -337,78 +337,83 @@
         </div>
 
         <!-- Women -->
+       
         <div class="col-lg-4 col-sm-6 col-md-6">
           <div class="widget-featured-entries mt-5 mt-lg-0">
-            <h4 class="mb-4 pb-3"> {{women}} </h4>
-            <!-- Product1 -->
-            <div class="card flex-row border-secondary">
-              <img class="card-img-left example-card-img-responsive" src="assets/images/women2.jpg" width="70" height="100"/>
-              <a href="shirts-women">
-              <div class="card-body">
-                <p class="card-title h4 h4-sm pt-2"> {{sub[1].name}} </p>
-                <p class="card-text"> See more articles of Shirts </p>
-              </div>
-              </a>
-             
+            <div>
+              <select (change)="getcat()" [(ngModel)]="women"  name="category" id="" class="form-control"> 
+                <option value="" selected>Select a Category </option>     
+                        <option  *ngFor="let item of cat;let index = index" [value]="item._id"><b>{{item.name}}</b></option>
+              </select>
+              <br>
             </div>
-
-            <br>
-            <!-- Product2 -->
-            <div class="card flex-row border-secondary">
-              <img class="card-img-left example-card-img-responsive" src="assets/images/women4.jpg" width="70" height="100"/>
-              <a href="sweaters-women">
-              <div class="card-body">
-                <p class="card-title h4 h4-sm pt-2"> {{sub[2].name}} </p>
-                <p class="card-text"> See more articles of Sweaters </p>
+            <!-- <h4 class="mb-4 pb-3"> {{women}} </h4> -->
+            <div *ngFor="let item of sub">
+              <div class="card flex-row border-secondary">
+                <a [routerLink]="['/filter/',item._id]">
+                <div class="card-body">
+                  <p class="card-title h4 h4-sm pt-2"> {{item.name}} </p>
+                  <p class="card-text"> See more articles of {{item.name}} </p>
+                </div>
+                </a>
+               
               </div>
-              </a>
-            </div>
-
-            <br>
-            <!-- Product3 -->
-            <div class="card flex-row border-secondary">
-              <img class="card-img-left example-card-img-responsive" src="assets/images/women9.jpg" width="70" height="100"/>
-              <a href="trousers-women">
-              <div class="card-body">
-                <p class="card-title h5 h4-sm pt-2"> {{sub[0].name}} </p>
-                <p class="card-text"> See more articles of Trousers </p>
+              <br>
+              <!-- 
+  
+              <br>
+              <div class="card flex-row border-secondary">
+                <img class="card-img-left example-card-img-responsive" src="assets/images/women4.jpg" width="70" height="100"/>
+                <a href="sweaters-women">
+                <div class="card-body">
+                  <p class="card-title h4 h4-sm pt-2"> {{item.name}} </p>
+                  <p class="card-text"> See more articles of Sweaters </p>
+                </div>
+                </a>
               </div>
-              </a>
-            </div>
-
-            <br>
-            <!-- Product4 -->
-            <div class="card flex-row border-secondary">
-              <img class="card-img-left example-card-img-responsive" src="assets/images/women1.jpg" width="70" height="100"/>
-              <a href="coats-women">
-              <div class="card-body">
-                <p class="card-title h5 h4-sm pt-2"> {{sub[3].name}} </p>
-                <p class="card-text"> See more articles of Coats </p>
+  
+              <br>
+              <div class="card flex-row border-secondary">
+                <img class="card-img-left example-card-img-responsive" src="assets/images/women9.jpg" width="70" height="100"/>
+                <a href="trousers-women">
+                <div class="card-body">
+                  <p class="card-title h5 h4-sm pt-2"> {{item.name}} </p>
+                  <p class="card-text"> See more articles of Trousers </p>
+                </div>
+                </a>
               </div>
-              </a>
-            </div>
-
-            <br>
-            <!-- Product5 -->
-            <div class="card flex-row border-secondary">
-              <img class="card-img-left example-card-img-responsive" src="assets/images/women12.jpg" width="70" height="100"/>
-              <a href="accessories-women">
-              <div class="card-body">
-                <p class="card-title h5 h4-sm pt-2"> {{sub[4].name}} </p>
-                <p class="card-text"> See more articles of Accessories </p>
+  
+              <br>
+              <div class="card flex-row border-secondary">
+                <img class="card-img-left example-card-img-responsive" src="assets/images/women1.jpg" width="70" height="100"/>
+                <a href="coats-women">
+                <div class="card-body">
+                  <p class="card-title h5 h4-sm pt-2"> {{item.name}} </p>
+                  <p class="card-text"> See more articles of Coats </p>
+                </div>
+                </a>
               </div>
-              </a>
+  
+              <br>
+              <div class="card flex-row border-secondary">
+                <img class="card-img-left example-card-img-responsive" src="assets/images/women12.jpg" width="70" height="100"/>
+                <a href="accessories-women">
+                <div class="card-body">
+                  <p class="card-title h5 h4-sm pt-2"> {{item.name}} </p>
+                  <p class="card-text"> See more articles of Accessories </p>
+                </div>
+                </a>
+              </div> -->
             </div>
             
           </div>
         </div>
   
         <!-- Men -->
-        <div class="col-lg-4 col-sm-6 col-md-6">
+        <!-- <div class="col-lg-4 col-sm-6 col-md-6">
           <div class="widget-featured-entries mt-5 mt-lg-0">
             <h4 class="mb-4 pb-3"> {{male}} </h4>
   
-            <!-- Product1 -->
             <div class="card flex-row border-secondary">
               <img class="card-img-left example-card-img-responsive" src="assets/images/men2.jpg" width="70" height="100"/>
               <a href="shirts-men">
@@ -420,7 +425,6 @@
             </div>
 
             <br>
-            <!-- Product2 -->
             <div class="card flex-row border-secondary">
               <img class="card-img-left example-card-img-responsive" src="assets/images/men8.jpg" width="70" height="100"/>
               <a href="sweaters-men">
@@ -432,7 +436,6 @@
             </div>
 
             <br>
-            <!-- Product3 -->
             <div class="card flex-row border-secondary">
               <img class="card-img-left example-card-img-responsive" src="assets/images/men3.jpg" width="70" height="100"/>
               <a href="trousers-men">
@@ -444,7 +447,6 @@
             </div>
 
             <br>
-            <!-- Product4 -->
             <div class="card flex-row border-secondary">
               <img class="card-img-left example-card-img-responsive" src="assets/images/men4.jpg" width="70" height="100"/>
               <a href="coats-men">
@@ -456,7 +458,6 @@
             </div>
 
             <br>
-            <!-- Product5 -->
             <div class="card flex-row border-secondary">
               <img class="card-img-left example-card-img-responsive" src="assets/images/men15.jpg" width="70" height="100"/>
               <a href="accessories-men">
@@ -470,7 +471,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Advantages -->
   <section class="features border-top">

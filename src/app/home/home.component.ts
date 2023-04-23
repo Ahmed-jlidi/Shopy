@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +12,33 @@ export class HomeComponent implements OnInit {
   constructor(private service:AuthService) { }
   //Slider settings
   slideConfig = {"slidesToShow": 1, "slidesToScroll": 1} ;
+  cat :any[]=[]
   women:String=""
   male:String=""
   sub:any=[]
 
   ngOnInit(): void {
     this.service.getallcat().subscribe((data:any)=>{
-      this.women=data.data[1].name
-      this.male=data.data[0].name
+
+      this.cat=data.data
+      console.log(this.cat)
+      // this.women=data.data[1].name
+      // this.male=data.data[0].name
     })
-    this.service.getallsubcat().subscribe((data:any)=>{
-      console.log(data.data)
-     this.sub=data.data
-    })
+    // this.service.getallsubcat().subscribe((data:any)=>{
+    //   console.log(data.data)
+    //  this.sub=data.data
+    // })
   }
+myForm = new FormGroup({
+  cat : new FormControl()
+})
+
+getcat(){
+  console.log(this.women)
+  this.service.getsubbycat(this.women).subscribe((data:any)=>{
+    this.sub=data.data
+  })
+}
 
 }

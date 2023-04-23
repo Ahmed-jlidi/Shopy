@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -10,5 +11,9 @@ export class HeadersComponent {
   
   
 
-constructor() {}
+constructor(private cookie:CookieService) {}
+
+logout(){
+  this.cookie.delete("token")
+}
 }

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   user:any
   constructor(private cookie:CookieService){}
   ngOnInit(): void {
-    console.log(this.user.role)
+    console.log(this.user)
   }
   
   
@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     this.user=JSON.parse(this.cookie.get("user"))
 
     if(this.user.role==="admin"){
-      return true
+      return this.test=true
     }else{
-      return false
+      return this.test=false
     }
     
   }

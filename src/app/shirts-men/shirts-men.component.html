@@ -7,7 +7,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="content text-center">
-            <h1 class="mb-3 display-4 fw-bold"> Men's Shirts </h1>
+            <h1 class="mb-3 display-4 fw-bold"> Filter </h1>
           </div>
         </div>
       </div>
@@ -19,107 +19,39 @@
           
       <div class="row">
         <!-- Product1 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+        <div *ngFor="let item of product">
+
+          <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
             <div class="product border border-secondary">
               <div class="product-wrap">
-                  <a href="product-single">
-                    <img class="img-fluid w-100 mb-3 img-first" src="assets/images/men2.jpg" alt="product-img" />
+                  <a [routerLink]="['/product-single/',item.id]">
+                    <img class="img-fluid w-100 mb-3 img-first" [src]="item.imageCover.substr(19)" alt="product-img" />
                   </a>
               </div>
   
               <div class="product-info">
-                  <h2 class="product-title h4 mb-0 fw-bold"> Shirt </h2>
-                  <span class="price">
-                    99.99 DT
-                  </span>
-                  <br>
-                  <a href="product-single">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
-                  </a>
-                  
-                  <a href="cart">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Add to Cart </button>
-                  </a>
-                  
-              </div>
-              <br>
-          </div>
-        </div>
-
-        <!-- Product2 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-          <div class="product border border-secondary">
-              <div class="product-wrap">
-                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/men2.jpg" alt="product-img" /></a>
-              </div>
-                  
-              <div class="product-info">
-                  <h2 class="product-title h4 mb-0 fw-bold"> Shirt </h2>
-                  <span class="price">
-                    99.99 DT
-                  </span>
-                  <br>
-                  <a href="product-single">
-                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
-                  </a>
-
-                  <a href="cart">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Add to Cart </button>
-                  </a>
-              </div>
-              <br>
-          </div>
-        </div>
-  
-        <!-- Product3 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-          <div class="product border border-secondary">
-              <div class="product-wrap">
-                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/men2.jpg" alt="product-img" /></a>
-              </div>
-    
-              <div class="product-info">
-                  <h2 class="product-title h4 mb-0 fw-bold"> Shirt </h2>
-                  <span class="price">
-                    99.99 DT
-                  </span>
-                  <br>
-                  <a href="product-single">
-                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
-                  </a>
-
-                  <a href="cart">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Add to Cart </button>
-                  </a>
-              </div>
-              <br>
-          </div>
-        </div>
-  
-        <!-- Product4 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
-          <div class="product border border-secondary">
-              <div class="product-wrap">
-                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/men2.jpg" alt="product-img" /></a>
-              </div>
-    
-              <div class="product-info">
-                  <h2 class="product-title h4 mb-0 fw-bold"> Shirt </h2>
-                  <span class="price">
-                      99.99 DT
-                  </span>
-                  <br>
-                  <a href="product-single">
-                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
-                  </a>
+                <h2 class="product-title h4 mb-0 fw-bold"> {{item.title}} </h2>
+                <span class="price">
+                  {{item.price}} DT
+                </span>
+                <br>
+                <a [routerLink]="['/product-single/',item.id]">
+                <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
+                </a>
                 
-                  <a href="cart">
-                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Add to Cart </button>
-                  </a>
-              </div>
+                <a>
+                <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm" (click)="cart(item.id)"> Add to Cart </button>
+                </a>
+                
+            </div>
               <br>
           </div>
         </div>
+
+        </div>
+
+  
+        
   
       </div>
     </div>

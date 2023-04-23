@@ -1,4 +1,5 @@
 const path = require('path');
+const SubCategory = require('../server/models/subCategoryModel');
 
 const Product = require('../server/models/productModel');
 const User = require('./models/userModel');
@@ -102,7 +103,24 @@ app.get('/favorites/:userId',getAllFavoriteProducts)
 
 // Get all user's favorite products
 
-
+app.get('/subcategory/:id', async (req, res) => {
+  try {
+    const subCategoryId = req.params.id;
+    const subCategory = await SubCategory.findById(subCategoryId).populate('category');
+    if (!subCategory) {
+      return res.status(404).send('Subcategory not found');
+    }
+    const products = await Product.find({ subcategories: subCategoryId }).populate('category').populate('subcategories').exec();
+    res.json({
+      subcategory: subCategory,
+      category: subCategory.category,
+      products: products,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 
 

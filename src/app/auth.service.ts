@@ -142,4 +142,10 @@ export class AuthService {
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
     return this.http.put<any>("http://localhost:5000/api/v1/categories/"+id,data,{headers})
   }
+  getsubbycat(id:any):Observable<any>{
+    return this.http.get<any>("http://localhost:5000/api/v1/categories/"+id+"/subcategories")
+  }
+  getsubcatwithcat(id:any):Observable<any>{
+    return this.http.get<any>("http://localhost:5000/subcategory/"+id)
+  }
 }
