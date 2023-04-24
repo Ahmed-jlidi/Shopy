@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/auth.service';
 export class UpdatecategoriessComponent {
   constructor(private service:AuthService,private route: ActivatedRoute){}
   myForm= new FormGroup({
-    name:new FormControl()
+    name:new FormControl("",[Validators.required])
   })
 
 

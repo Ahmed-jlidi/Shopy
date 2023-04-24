@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Alert } from 'bootstrap';
 
 @Component({
   selector: 'app-checkout',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-
+  order(){
+    alert('Your Order Is in Process We Will Contact You In Few Hours')
+  }
 }

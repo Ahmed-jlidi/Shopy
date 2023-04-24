@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 export class AddcategoriessComponent {
 constructor(private service:AuthService){}
 myForm=new FormGroup({
-name:new FormControl()
+name:new FormControl("",[Validators.required])
 })
 addcat(){
 this.service.addcat(this.myForm.value).subscribe((data:any)=>{

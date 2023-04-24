@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
@@ -55,12 +55,12 @@ constructor(private service:AuthService,private route: ActivatedRoute){}
   }
 
   myForm=new FormGroup({
-    title: new FormControl(),
-    description: new FormControl(),
-    price:new FormControl(),
-    category : new FormControl(),
+    title: new FormControl("",[Validators.required]),
+    description: new FormControl("",[Validators.required]),
+    price:new FormControl(0,[Validators.required]),
+    category : new FormControl("",[Validators.required]),
     
-    subcategories:new FormControl("")
+    subcategories:new FormControl("",[Validators.required])
     
 
   })

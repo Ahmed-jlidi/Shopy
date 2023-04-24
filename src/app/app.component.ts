@@ -13,9 +13,7 @@ export class AppComponent implements OnInit {
   user:any
   constructor(private cookie:CookieService){}
   ngOnInit(): void {
-    this.user=JSON.parse(this.cookie.get("user"))
-
-    console.log(this.user.role)
+    // console.log(this.user.role)
     
   }
   

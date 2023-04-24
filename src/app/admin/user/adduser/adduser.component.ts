@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -11,13 +11,13 @@ export class AdduserComponent {
 constructor(private service:AuthService){}
 
 myForm=new FormGroup({
-  email:new FormControl(""),
-  name:new FormControl(""),
-  password:new FormControl(""),
-  passwordConfirm : new FormControl(""),
+  email:new FormControl("",[Validators.required,Validators.email]),
+  name:new FormControl("",[Validators.required]),
+  password:new FormControl("",[Validators.required]),
+  passwordConfirm : new FormControl("",[Validators.required]),
   profileImg:new FormControl(""),
-  phone:new FormControl(""),
-  role:new FormControl("")
+  phone:new FormControl("",[Validators.required]),
+  role:new FormControl("",[Validators.required])
 })
 
 

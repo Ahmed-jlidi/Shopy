@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -17,8 +17,8 @@ this.service.getallcat().subscribe((data:any)=>{
 })
   }
 myForm = new FormGroup({
-  name:new FormControl(),
-  category:new FormControl()
+  name:new FormControl("",[Validators.required]),
+  category:new FormControl("",[Validators.required])
 })
 addcat(){
   this.service.addsubcat(this.myForm.value).subscribe((data:any)=>{

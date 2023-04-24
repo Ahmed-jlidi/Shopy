@@ -16,6 +16,9 @@
                                <label for="item_name"> Title </label>
                                <input type="text" class="form-control form-control-lg rounded"  formControlName="title"/>
                             </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.title.hasError('required')">title is required</div>
+                          </div>
                          </div>
 
                          <div class="col-lg-12">
@@ -29,6 +32,9 @@
                               </select>
                               <!-- <input type="text" class="form-control form-control-lg rounded" />                 -->        
                               </div>
+                              <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                                 <div *ngIf="myForm.controls.category.hasError('required')">category is required</div>
+                             </div>
                         </div>
 
                         <div class="col-lg-12">
@@ -40,6 +46,9 @@
                         
                         </select>                     
                        </div>
+                       <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.subcategories.hasError('required')">subcategories is required</div>
+                    </div>
                      </div>
 
                         <div class="col-lg-12">
@@ -48,6 +57,9 @@
                               <input type="text" class="form-control form-control-lg rounded"  formControlName="colors"/>     
 
                            </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.colors.hasError('required')">colors is required</div>
+                          </div>
                         </div>
 
                         <div class="col-lg-12">
@@ -55,12 +67,17 @@
                               <label for="State"> State </label>
                               <input type="number" class="form-control form-control-lg rounded" formControlName="quantity" />                           </div>
                         </div>
-
+                        <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                           <div *ngIf="myForm.controls.quantity.hasError('required')">quantity is required</div>
+                       </div>
                         <div class="col-lg-12">
                             <div class="form-group mb-4">
                               <label for="Description"> Description </label>
                               <textarea class="form-control" id="msg" cols="30" rows="5" formControlName="description"></textarea>
                            </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.description.hasError('required')">description is required</div>
+                          </div>
                         </div>
 
                         <div class="col-lg-12">
@@ -100,13 +117,19 @@
                                 <label for="selling_price"> Selling Price </label>
                                 <input type="number" class="form-control form-control-lg rounded" formControlName="priceAfterDiscount"/>
                              </div>
+                             <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.priceAfterDiscount.hasError('required')">price After Discount is required</div>
+                          </div>
                           </div>
  
                           <div class="col-lg-12">
                              <div class="form-group mb-4">
                                <label for="original_price"> Original Price </label>
                                <input type="number" class="form-control form-control-lg rounded" formControlName="price" />                           </div>
-                             </div>   
+                             </div>  
+                             <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.price.hasError('required')">Price is required</div>
+                          </div> 
                           </div>
                           
                  </div>

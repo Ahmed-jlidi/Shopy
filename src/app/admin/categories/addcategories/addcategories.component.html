@@ -105,7 +105,9 @@
                 <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">New Category</label>
                 <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="New Category">
                </div>
-
+               <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+            </div>
               
               <div class="text-center">
               <button  style="display: center; border-radius: 8px ; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Add Categories</button>

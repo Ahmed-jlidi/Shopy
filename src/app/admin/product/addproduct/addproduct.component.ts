@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { AuthService } from 'src/app/auth.service';
@@ -34,15 +34,15 @@ subv=""
     })
   }
   myForm = new FormGroup({
-    title :new FormControl(""),
-    category :new FormControl(""),
-    subcategories:new FormControl(''),
-    quantity :new FormControl(),
-    description: new FormControl(""),
-    price :new FormControl(),
-    priceAfterDiscount :new FormControl(),
+    title :new FormControl("",[Validators.required]),
+    category :new FormControl("",[Validators.required]),
+    subcategories:new FormControl('',[Validators.required]),
+    quantity :new FormControl(0,[Validators.required]),
+    description: new FormControl("",[Validators.required]),
+    price :new FormControl(0,[Validators.required]),
+    priceAfterDiscount :new FormControl(0,[Validators.required]),
     imageCover: new FormControl(this.image),
-    createdBy : new FormControl(this.id._id)
+    createdBy : new FormControl(this.id._id,[Validators.required])
 
   })
   getFileUrl(file: File, quality: number): Promise<string> {

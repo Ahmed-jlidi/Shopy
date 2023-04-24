@@ -104,26 +104,38 @@
                       <h5 style="text-align: center;" class="card-title fs-4 mt-4">Add User</h5>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Email</label>
-                        <input formControlName="email" type="text" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Email">
-                        <!-- title.email && title.invalid && title.touched -->
-                      
+                        <input formControlName="email" type="text" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Email">                      
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.email.hasError('required')">email is required</div>
+                        <div *ngIf="myForm.controls.email.hasError('required')">email is required</div>
+                    </div>
+                      
                       <div class="mb-3">
                         <label style="margin-left: 20px;">Username</label>
                         <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Username">
                         
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+                    </div>
                         
                       <div class="mb-3">
                         <label style="margin-left: 20px;">Password</label>
                         <input formControlName="password" type="password" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Password">
                         
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.password.hasError('required')">password is required</div>
+                    </div>
                       <div class="mb-3">
                         <label style="margin-left: 20px;">Confirm Password</label>
                         <input formControlName="passwordConfirm" type="password" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Confirm Password">
                         
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.passwordConfirm.hasError('required')">password Confirm is required</div>
+                    </div>
                       <div class="mb-3">
                         <label style="margin-left: 20px;">Profile Picture</label>
                         <input formControlName="profileImg" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Profile Picture">
@@ -134,6 +146,9 @@
                         <input formControlName="phone" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Phone">
                         
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.phone.hasError('required')">phone is required</div>
+                    </div>
                       <label style="margin-left: 20px;">Role</label>
                       <div class="mb-3" >
 
@@ -142,8 +157,11 @@
                             <option value="user">user</option>
                         </select>
                       </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                        <div *ngIf="myForm.controls.role.hasError('required')">role is required</div>
+                    </div>
                       <div class="text-center">
-                      <button  style="display: center; border-radius: 8px; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Add User</button>
+                      <button  style="display: center; border-radius: 8px; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded" [disabled]="myForm.invalid" >Add User</button>
                       </div>
             
                       <br>

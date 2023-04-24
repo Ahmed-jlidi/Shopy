@@ -105,7 +105,9 @@
                 <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;"> Category Name</label>
                 <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="Category Name">
                </div>
-
+               <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+            </div>
                
               <br>
               <div class="text-center">
