@@ -9,10 +9,14 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
   title = 'angularshop';
   test=false
+  token=false
   user:any
   constructor(private cookie:CookieService){}
   ngOnInit(): void {
-    console.log(this.user)
+    this.user=JSON.parse(this.cookie.get("user"))
+
+    console.log(this.user.role)
+    
   }
   
   
@@ -20,13 +24,15 @@ export class AppComponent implements OnInit {
   checknavbar(){
     this.user=JSON.parse(this.cookie.get("user"))
 
-    if(this.user.role==="admin"){
-      return this.test=true
-    }else{
-      return this.test=false
-    }
+   if(this.cookie.get("token").length!=0 && this.user.role+""==="admin"){
+    return true
+   }else{
+    return false
+   }
+
     
   }
   
+
 
 }

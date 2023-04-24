@@ -22,24 +22,47 @@
                     <input formControlName="email" type="email" id="form2Example17" class="form-control form-control-lg rounded" />
                   </div>
 
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                    <div *ngIf="myForm.controls.email.hasError('required')">email is required</div>
+                    <div *ngIf="myForm.controls.email.hasError('email')">email is Invalid</div>
+
+                  </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example27"> Enter UserName </label>
                     <input formControlName="name" type="text" id="form2Example27" class="form-control form-control-lg rounded" />
                   </div>
 
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched) && myForm.controls.name.hasError('required')">
+                    <div>name is required</div>
+                  </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example27"> Enter Password </label>
                     <input formControlName="password" type="password" id="form2Example28" class="form-control form-control-lg rounded" />
                   </div>
 
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched) && myForm.controls.password.hasError('required')">
+                    <div >Password is required</div>
+                  </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example27"> Confirm Password </label>
                     <input formControlName="passwordConfirm" type="password" id="form2Example29" class="form-control form-control-lg rounded" />
                   </div>
+                  <div class="alert alert-danger" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched) && myForm.controls.passwordConfirm.hasError('required')">
+                    <div >Conform Password is required</div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example27"> Phone </label>
+                    <input formControlName="phone" type="number" id="form2Example29" class="form-control form-control-lg rounded" />
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched) && myForm.controls.phone.hasError('required')">
+                    <div >phone is required</div>
+                  </div>
+                  <input type="file" name="picture" (change)="onFileSelectedd($event,10)">
 
+               
                   <div class="form-row text-center">
                     <div class="col-12">
-                       <button style="display: center; border-radius: 8px;" type="submit" class="btn"> SignUp </button>
+                       <button style="display: center; border-radius: 8px;" type="submit" class="btn" [disabled]="myForm.invalid"> SignUp </button>
                     </div>
                   </div>
 

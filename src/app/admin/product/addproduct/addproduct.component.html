@@ -114,8 +114,7 @@
                 
                 <div class="mb-3">
                     <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">Category</label>
-                    <select formControlName="category" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
-                     <option class="mystyle">Select Category</option>
+                    <select (change)="getcat()" [(ngModel)]="values" formControlName="category" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
                      <option *ngFor="let item of arr"  [value]="item.id"  >{{item.name}}</option>
                      
                     </select>
@@ -124,8 +123,7 @@
                 <div class="mb-3" >
                     <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">SubCategories</label>
                     <select formControlName="subcategories" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
-                     <option class="mystyle">Select SubCategory</option>
-                     <option *ngFor="let item of sub"  [value]="item.id"  >{{item.name}}</option>
+                     <option *ngFor="let item of subc"  [value]="item._id"  >{{item.name}}</option>
     
                     </select>
                 </div>
@@ -146,7 +144,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="exampleFormControlInput5" class="form-label rounded" style="margin-left: 20px;">Quantity</label>
-                    <input formControlName="quantity" type="number" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Price">
+                    <input formControlName="quantity" type="number" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Quantity">
                   
                   </div>
                   <div class="mb-3">

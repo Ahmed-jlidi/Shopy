@@ -57,6 +57,7 @@ import { DisplayproductsComponent } from './admin/product/displayproduct/display
 import { AddcategoriessComponent } from './admin/categories/addcategories/addcategories.component';
 import { DisplaycategoriessComponent } from './admin/categories/displaycategories/displaycategories.component';
 import { UpdatecategoriessComponent } from './admin/categories/updatecategories/updatecategories.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -106,16 +107,17 @@ import { UpdatecategoriessComponent } from './admin/categories/updatecategories/
     ShirtsMenComponent,
     SweatersMenComponent,
     TrousersMenComponent,AddcategoriessComponent,
-
     HeadersComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     SlickCarouselModule,
     FormsModule,ReactiveFormsModule,
     HttpClientModule,NgxPaginationModule
+    ,ToastrModule.forRoot()
   ],
 
   

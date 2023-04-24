@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -15,5 +16,7 @@ constructor(private cookie:CookieService) {}
 
 logout(){
   this.cookie.delete("token")
+
+
 }
 }

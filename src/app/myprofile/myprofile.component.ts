@@ -16,5 +16,6 @@ export class MyprofileComponent implements OnInit {
   console.log(this.cookie.get("user"))
   this.arr=JSON.parse(this.cookie.get("user"))
   console.log(this.arr)
+  
   }
 }

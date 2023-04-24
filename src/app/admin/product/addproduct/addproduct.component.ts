@@ -12,8 +12,11 @@ import { AuthService } from 'src/app/auth.service';
 export class AddproductsComponent implements OnInit {
 constructor(private service:AuthService,private cookie:CookieService,private imageCompress: NgxImageCompressService){}
 arr:any[]=[]
+subv=""
   image:any=""
   sub:any[]=[]
+  subc:any[]=[]
+  values=""
   id:any=JSON.parse(this.cookie.get("user"))
   ngOnInit(): void {
     this.service.getallsubcat().subscribe((data)=>{
@@ -59,7 +62,11 @@ arr:any[]=[]
       };
     });
   }
-  
+  getcat(){
+    this.service.getsubbycat(this.values).subscribe((data:any)=>{
+      this.subc=data.data
+    })
+  }
 
   // one file 
   onFileSelectedd(data: any, quality: number) {
@@ -75,9 +82,9 @@ arr:any[]=[]
     );
   }
 validerrP(){
-  let datass={title:this.myForm.value.title,category:this.myForm.value.category,subcategories:[this.myForm.value.subcategories],quantity:this.myForm.value.quantity,description:this.myForm.value.description,price:this.myForm.value.price,priceAfterDiscount:this.myForm.value.priceAfterDiscount,imageCover:this.image,createdBy:this.id._id}
+  let datass={title:this.myForm.value.title,category:this.values,subcategories:[this.myForm.value.subcategories],quantity:this.myForm.value.quantity,description:this.myForm.value.description,price:this.myForm.value.price,priceAfterDiscount:this.myForm.value.priceAfterDiscount,imageCover:this.image,createdBy:this.id._id}
 
-  console.log(this.myForm.value.imageCover)
+  console.log(this.myForm.value.subcategories)
   console.log(datass)
   this.service.addproduct(datass).subscribe((data:any)=>{
     console.log(data)
