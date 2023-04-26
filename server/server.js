@@ -15,6 +15,7 @@ dotenv.config({ path: 'config.env' });
 const ApiError = require('./utils/apiError');
 const globalError = require('./middlewares/errorMiddleware');
 const dbConnection = require('./config/database');
+const filter = require("./utils/apiFeatures")
 // Routes
 const mountRoutes = require('./routes');
 const { webhookCheckout } = require('./services/orderService');
@@ -126,6 +127,9 @@ app.get('/latest-products', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+app.get("/ok",(req,res,next)=>{
+  next(new filter("sorted"))
+})
 app.get('/subcategory/:id', async (req, res) => {
   try {
     const subCategoryId = req.params.id;

@@ -158,5 +158,16 @@ setData(data:any):any{
   getData(): any {
     return this.someData;
   }
+  postreview(data:any):Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.cookie.get("token"));
+
+    return this.http.post<any>("http://localhost:5000/api/v1/reviews",data,{headers})
+  }
+  getreviewall(id:any):Observable<any>{
+
+    return this.http.get<any>("http://localhost:5000/api/v1/products/"+id+"/reviews")
+  }
+  
+  
 
 }
