@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   test=false
   token=false
   user:any
-  constructor(private cookie:CookieService){}
+  constructor(private cookie:CookieService,private auth:AuthService){}
   ngOnInit(): void {
     // console.log(this.user.role)
     
@@ -20,9 +21,8 @@ export class AppComponent implements OnInit {
   
   
   checknavbar(){
-    this.user=JSON.parse(this.cookie.get("user"))
 
-   if(this.cookie.get("token").length!=0 && this.user.role+""==="admin"){
+   if(this.cookie.get("token").length!=0 && this.auth.getData()==="admin"){
     return true
    }else{
     return false

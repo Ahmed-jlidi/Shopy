@@ -49,6 +49,8 @@ import { CoatsMenComponent } from './coats-men/coats-men.component';
 import { ShirtsMenComponent } from './shirts-men/shirts-men.component';
 import { SweatersMenComponent } from './sweaters-men/sweaters-men.component';
 import { TrousersMenComponent } from './trousers-men/trousers-men.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { IndexComponent } from './admin/index/index.component';
 
 
 const routes: Routes = [
@@ -122,6 +124,12 @@ const routes: Routes = [
 
 
    //admin
+   {
+    path:"admin/home",component:IndexComponent
+   },
+   {
+    path:"admin/profile",component:ProfileComponent
+   },
   //admin.headers
   {
     path:"admin/headers",component:HeadersComponent

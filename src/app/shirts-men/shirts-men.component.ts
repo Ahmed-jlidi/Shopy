@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shirts-men.component.css']
 })
 export class ShirtsMenComponent implements OnInit {
+  p:number=1
   constructor(private service:AuthService,private route: ActivatedRoute){}
   product:any[]=[]
   ngOnInit(): void {

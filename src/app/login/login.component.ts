@@ -5,6 +5,7 @@ import {enableProdMode} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { ToastrService,ToastrModule } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 
 enableProdMode();
@@ -16,7 +17,7 @@ enableProdMode();
 
 export class LoginComponent {
   showAlert: boolean = false;
-
+  err:any=""
   constructor(private router:Router,private toastr: ToastrService,private authService: AuthService,private cookieService: CookieService) {
     this.toastr.toastrConfig.positionClass = 'toast-top-right'; // set the position of the toastr
     this.toastr.toastrConfig.toastClass = 'toast-green'; // set the color of the toastr
@@ -39,13 +40,29 @@ export class LoginComponent {
       this.cookieService.set('token', data.token, expireDate);
       this.cookieService.set('user',JSON.stringify(data.data.user))
      console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),+" 'user data'  "+JSON.stringify(data.data.user))
-    
-     this.showAlert=true
+      this.authService.setData(data.data.user.role)
+     Swal.fire(
+      'SUccessfully Logged In'
+    )
+
      
-    this.router.navigate(['/myprofile']);
+     if(data.data.user.role==="user"){
+       this.router.navigate(['/myprofile']);
+      }else{
+        this.router.navigate(['/admin/home']);
+
+      }
+ 
+    },(error:any)=>{
+      this.showAlert=true
+      this.err=error.error.message
+      console.log(error)
     })
-    console.log(this.myForm)
 
 
   }
 }
+function openPopup() {
+  throw new Error('Function not implemented.');
+}
+

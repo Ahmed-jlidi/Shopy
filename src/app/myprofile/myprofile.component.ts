@@ -15,7 +15,7 @@ export class MyprofileComponent implements OnInit {
   ngOnInit(): void {
   console.log(this.cookie.get("user"))
   this.arr=JSON.parse(this.cookie.get("user"))
-  console.log(this.arr)
+  console.log(this.arr.name)
   
   }
 }

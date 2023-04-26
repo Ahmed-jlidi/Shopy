@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajout-produit',
@@ -37,17 +38,17 @@ export class AjoutProduitComponent implements OnInit{
   }
  
   myForm = new FormGroup({
-    title :new FormControl(""),
-    category :new FormControl(""),
-    subcategories: new FormControl([""]),
-    colors :new FormControl([""]),
-    quantity :new FormControl(),
-    description: new FormControl(""),
-    price :new FormControl(),
-    priceAfterDiscount :new FormControl(),
-    imageCover: new FormControl(this.image),
+    title :new FormControl("",[Validators.required,Validators.minLength(3)]),
+    category :new FormControl("",[Validators.required]),
+    subcategories: new FormControl([""],[Validators.required]),
+    colors :new FormControl([""],[Validators.required]),
+    quantity :new FormControl(0,[Validators.required]),
+    description: new FormControl("",[Validators.required,Validators.minLength(40)]),
+    price :new FormControl(0,[Validators.required]),
+    priceAfterDiscount :new FormControl(0,[Validators.required]),
+    imageCover: new FormControl(this.image,[Validators.required]),
    // images: new FormControl(""),
-    createdBy : new FormControl(this.id._id)
+    createdBy : new FormControl(this.id._id,[Validators.required])
 
   })
   data:any
@@ -57,6 +58,9 @@ export class AjoutProduitComponent implements OnInit{
 console.log(datass)
     this.service.addproduct(datass).subscribe((data:any)=>{
       console.log(data)
+      Swal.fire("Successfully Added")
+      this.myForm.reset()
+
     })
   }
 

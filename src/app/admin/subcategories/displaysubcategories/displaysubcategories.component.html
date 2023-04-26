@@ -65,7 +65,7 @@
                                 </li>
                             </ul>
                         </li>
-                          <li>
+                          <!-- <li>
                             <a href="#submenu5" data-bs-toggle="collapse" class="nav-link px-0 align-middle mt-2" style="margin-left: 15px;">
                                 <i class="fs-6 bi bi-cart-fill" style="color: #ffffff;"></i> <span class="order ms-1 d-none d-sm-inline"> Orders Management </span> </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu5" data-bs-parent="#menu">
@@ -73,7 +73,7 @@
                                     <a href="orders-management" class="nav-link px-0" style="margin-top: 10px;"> <span class="d-none d-sm-inline" style="color: #fb5c42; margin-left: 35px;"> Display </span> </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
           
                         <a href="admin/headers" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none mt-4" style="margin-left: 15px;">
                           <i class="fs-6 bi bi-gear-fill" style="color: #fb5c42;"></i><span class="fs-5 ms-2 d-none d-sm-inline" style="color: #fb5c42;"> Settings </span>
@@ -97,6 +97,8 @@
           <div class="col-md-10">
             <table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 150px;">
                 <thead>
+                    <tr scope="col"><h1>All SubCategory</h1></tr>
+
                   <tr>
                     <th scope="col"><div class="text-black">ID</div></th>
                     <th scope="col"><div class="text-black">SubCategorie Name</div></th>
@@ -105,7 +107,7 @@
                 </tr>
                 </thead>
                 <tbody >
-                  <tr *ngFor="let item of arr;let index=index;let i as index">
+                  <tr *ngFor="let item of arr | paginate: { itemsPerPage: 3, currentPage: p };let index=index;let i as index">
                     <td><div class="text-black">{{index+1}}</div></td>
                     <td><div class="text-black">{{item.name}}</div></td>
                     <td><div class="text-black">{{item.category}}</div></td>
@@ -118,7 +120,10 @@
                   </tbody>
                   
             </table>
-            
+            <br><br><br>
+            <div style="display: flex; justify-content: center;">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
             </div>
 </div>
 </div> 

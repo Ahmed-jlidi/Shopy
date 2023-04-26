@@ -84,7 +84,20 @@ const addFavoriteProduct = async (req, res) => {
   }
 };
 app.post('/favorites',addFavoriteProduct)
-
+app.get('/products/:iduser', async (req, res) => {
+  try {
+    const userId = req.params.iduser;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    const products = await Product.find({ createdBy: userId }).populate('category');
+    res.json({ user, products });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 const getAllFavoriteProducts = async (userId) => {
   try {
     const user = await User.findById(userId).populate('wishlist');
@@ -102,7 +115,17 @@ app.get('/favorites/:userId',getAllFavoriteProducts)
 
 
 // Get all user's favorite products
-
+app.get('/latest-products', async (req, res) => {
+  try {
+    const latestProducts = await Product.find()
+      .sort({ createdAt: 'desc' })
+      .limit(8);
+    res.json(latestProducts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 app.get('/subcategory/:id', async (req, res) => {
   try {
     const subCategoryId = req.params.id;

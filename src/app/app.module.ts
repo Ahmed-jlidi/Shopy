@@ -1,9 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -58,6 +56,8 @@ import { AddcategoriessComponent } from './admin/categories/addcategories/addcat
 import { DisplaycategoriessComponent } from './admin/categories/displaycategories/displaycategories.component';
 import { UpdatecategoriessComponent } from './admin/categories/updatecategories/updatecategories.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { IndexComponent } from './admin/index/index.component';
 
 
 @NgModule({
@@ -107,7 +107,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ShirtsMenComponent,
     SweatersMenComponent,
     TrousersMenComponent,AddcategoriessComponent,
-    HeadersComponent
+    HeadersComponent,
+    IndexComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -117,7 +118,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SlickCarouselModule,
     FormsModule,ReactiveFormsModule,
     HttpClientModule,NgxPaginationModule
-    ,ToastrModule.forRoot()
+    ,ToastrModule.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
 
   

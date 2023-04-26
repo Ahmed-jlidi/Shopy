@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-displayproduct',
@@ -7,12 +9,14 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./displayproduct.component.css']
 })
 export class DisplayproductsComponent implements OnInit {
+  p: number = 1;
 
 constructor(private service:AuthService){
   
 
 }
 arr:any[]=[]
+
   ngOnInit(): void {
     const a = this.service.getallproduct().subscribe((data:any)=>{
       try {
@@ -29,7 +33,9 @@ arr:any[]=[]
   deletes(data:any){
 this.service.deleteproduct(data._id).subscribe((data:any)=>{
   console.log(data)
-})
+  Swal.fire({text:"Successfully Deleted",
+  confirmButtonColor: 'red'})})
+ 
   }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addsubcategories',
@@ -23,6 +24,9 @@ myForm = new FormGroup({
 addcat(){
   this.service.addsubcat(this.myForm.value).subscribe((data:any)=>{
     console.log(data)
+    Swal.fire("SubCategory Added Successfully")
+    this.myForm.reset()
+
   })
 }
 }

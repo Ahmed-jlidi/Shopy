@@ -9,6 +9,7 @@ export class AuthService {
 
   constructor(private cookie:CookieService, private http:HttpClient) { }
   id:any
+  someData:any
 
 
   url = "http://localhost:5000/api/v1/auth/signup"
@@ -148,4 +149,14 @@ export class AuthService {
   getsubcatwithcat(id:any):Observable<any>{
     return this.http.get<any>("http://localhost:5000/subcategory/"+id)
   }
+  getlast():Observable<any>{
+    return this.http.get<any>("http://localhost:5000/latest-products")
+  }
+setData(data:any):any{
+  return this.someData=data
+}
+  getData(): any {
+    return this.someData;
+  }
+
 }

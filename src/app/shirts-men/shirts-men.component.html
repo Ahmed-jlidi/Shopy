@@ -18,10 +18,12 @@
     <div class="container">
           
       <div class="row">
-        <!-- Product1 -->
-        <div *ngFor="let item of product">
+        <!-- Product1 -->  
+        <!-- display array-->
+       <div style="display: flex; justify-content: space-around;">
+        <div *ngFor="let item of product | paginate: { itemsPerPage: 4, currentPage: p }" >
 
-          <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+          <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" style="width: 300px;" >
             <div class="product border border-secondary">
               <div class="product-wrap">
                   <a [routerLink]="['/product-single/',item.id]">
@@ -46,12 +48,15 @@
             </div>
               <br>
           </div>
-        </div>
+          </div>
 
         </div>
+       </div>
 
   
-        
+       <div style="display: flex; justify-content: center;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
   
       </div>
     </div>

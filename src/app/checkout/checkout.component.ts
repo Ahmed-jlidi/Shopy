@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Alert } from 'bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -8,6 +9,14 @@ import { Alert } from 'bootstrap';
 })
 export class CheckoutComponent {
   order(){
-    alert('Your Order Is in Process We Will Contact You In Few Hours')
-  }
+    Swal.fire({
+    title:"Would you like to confirm order",
+    
+    confirmButtonColor: 'green',
+    confirmButtonText: 'yes',
+    cancelButtonText: 'no',
+    cancelButtonColor: 'red',
+    showCancelButton: true,
+
+  })  }
 }

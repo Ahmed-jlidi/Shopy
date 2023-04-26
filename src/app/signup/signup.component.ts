@@ -4,6 +4,7 @@ import {FormGroup , FormControl, Validators} from '@angular/forms'
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-signup',
@@ -12,18 +13,18 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 })
 export class SignupComponent {
   image: string=""
-
-  constructor(private imageCompress: NgxImageCompressService,private service:AuthService,private routes :Router,){}
+  ali :any[]=[]
+  constructor(private roter:Router, private imageCompress: NgxImageCompressService,private service:AuthService,private routes :Router,){}
 
 
 
   myForm = new FormGroup({
     email :new FormControl("",[Validators.required,Validators.email]),
     name :new FormControl("",[Validators.required]),
-    password :new FormControl("",[Validators.required]),
-    passwordConfirm :new FormControl("",[Validators.required]),
+    password :new FormControl("",[Validators.required,Validators.minLength(6)]),
+    passwordConfirm :new FormControl("",[Validators.required,Validators.minLength(6)]),
     phone :new FormControl(0,[Validators.required]),
-    profileImg:new FormControl("")
+    profileImg:new FormControl("",[Validators.required])
 
   })
   getFileUrl(file: File, quality: number): Promise<string> {
@@ -62,7 +63,13 @@ export class SignupComponent {
     const data={email:this.myForm.value.email,name:this.myForm.value.name,password:this.myForm.value.password,passwordConfirm:this.myForm.value.passwordConfirm,phone:this.myForm.value.phone,profileImg:this.image}
     this.service.signup(data).subscribe((data:any)=>{
       console.log(data)
+      this.roter.navigate(['/login'])
+    },
+    (error:any) => {
+      this.ali=error.error.errors
+      console.log("hethy :",error);
     })
+
 
 
   }

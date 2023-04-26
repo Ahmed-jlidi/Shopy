@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,32 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service:AuthService) { }
+  constructor(private cookie:CookieService, private service:AuthService) { }
   //Slider settings
   slideConfig = {"slidesToShow": 1, "slidesToScroll": 1} ;
   cat :any[]=[]
   women:String=""
   male:String=""
   sub:any=[]
-
+  last:any[]=[]
+  un:any
+  pn:any
   ngOnInit(): void {
+  
+  
+    this.service.getlast().subscribe((data:any)=>{
+      this.last=data
+    })
+
+    this.service.getallproduct().subscribe((data:any)=>{
+      this.pn=data.results
+    })
+    
+    this.service.displayuser().subscribe((data:any)=>{
+      console.log(data)
+    this.un=data.results
+    })
+
     this.service.getallcat().subscribe((data:any)=>{
 
       this.cat=data.data
@@ -33,12 +52,29 @@ export class HomeComponent implements OnInit {
 myForm = new FormGroup({
   cat : new FormControl()
 })
-
 getcat(){
-  console.log(this.women)
   this.service.getsubbycat(this.women).subscribe((data:any)=>{
     this.sub=data.data
+  
   })
 }
+cart(id:any){
+  this.service.addcart(id).subscribe( (response) => {
+    console.log(response);
+    Swal.fire("Successfully Added to Cart")
+  },
+  (error) => {
+    console.error(error);
+  })
+ }
+ wish(id:any){
+  const userId=this.cookie.get('user')
+  const data = {userId:JSON.parse(userId)._id,productId:id}
+  this.service.addfavorit(data).subscribe((data:any)=>{
+    console.log(data)
+
+    Swal.fire("Successfully Added to Favorit")
+  })
+ }
 
 }

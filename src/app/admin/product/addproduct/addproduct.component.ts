@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { AuthService } from 'src/app/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addproducts',
@@ -34,14 +35,14 @@ subv=""
     })
   }
   myForm = new FormGroup({
-    title :new FormControl("",[Validators.required]),
+    title :new FormControl("",[Validators.required,Validators.minLength(3)]),
     category :new FormControl("",[Validators.required]),
     subcategories:new FormControl('',[Validators.required]),
     quantity :new FormControl(0,[Validators.required]),
-    description: new FormControl("",[Validators.required]),
+    description: new FormControl("",[Validators.required,Validators.minLength(40)]),
     price :new FormControl(0,[Validators.required]),
     priceAfterDiscount :new FormControl(0,[Validators.required]),
-    imageCover: new FormControl(this.image),
+    imageCover: new FormControl(this.image,[Validators.required]),
     createdBy : new FormControl(this.id._id,[Validators.required])
 
   })
@@ -88,6 +89,10 @@ validerrP(){
   console.log(datass)
   this.service.addproduct(datass).subscribe((data:any)=>{
     console.log(data)
+    Swal.fire("Product Added successfully")
+    this.myForm.reset()
+
+
   })
 }
 }

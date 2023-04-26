@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shop',
@@ -45,6 +46,7 @@ constructor(private service:AuthService,private route: ActivatedRoute,private co
   console.log(this.id)
   this.service.addcart(id).subscribe( (response) => {
     console.log(response);
+    Swal.fire("Successfully Added to Cart")
   },
   (error) => {
     console.error(error);
@@ -55,6 +57,8 @@ constructor(private service:AuthService,private route: ActivatedRoute,private co
   const data = {userId:JSON.parse(userId)._id,productId:id}
   this.service.addfavorit(data).subscribe((data:any)=>{
     console.log(data)
+
+    Swal.fire("Successfully Added to Favorit")
   })
  }
 }

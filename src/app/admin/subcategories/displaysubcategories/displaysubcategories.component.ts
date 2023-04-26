@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-displaysubcategories',
@@ -12,6 +13,7 @@ arr:any[]=[]
 catid:any[]=[]
 catarr:any[]=[]
 id:any=''
+p:number=1
   ngOnInit(): void {
     this.service.getallsubcat().subscribe((data:any)=>{
       console.log(data.data)
@@ -24,6 +26,7 @@ id:any=''
   deletes(data:any){
       this.service.deletesubcat(data._id).subscribe((data:any)=>{
         console.log(data)
-      })
+        Swal.fire({text:"Successfully Deleted",
+        confirmButtonColor: 'red'})      })
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -39,6 +40,9 @@ export class HeaderComponent implements OnInit {
     let indexs=index._id
     this.service.deletecartid(indexs).subscribe((data:any)=>{
       console.log(data)
+      Swal.fire({text:"Successfully Element Deleted",
+      confirmButtonColor: 'red',
+    })
     })
   }
 }

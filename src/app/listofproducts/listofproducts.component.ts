@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listofproducts',
@@ -25,6 +26,9 @@ constructor(private service:AuthService,private cookie:CookieService){}
     //console.log(data._id)
     this.service.deleteproduct(data._id).subscribe((data:any)=>{
       console.log(data)
+      Swal.fire({text:"Successfully Element Deleted",
+      confirmButtonColor: 'red',
+    })
     })
   }
 
