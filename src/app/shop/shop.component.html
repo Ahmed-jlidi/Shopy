@@ -74,19 +74,18 @@
       <h3 class="widget-title h4 mb-4 fw-bold"> Default Sorting </h3>
 
       <form class="ordering" method="get">
-        <select name="orderby" class="orderby form-control border-dark rounded" aria-label="Shop order" >
+        <select [(ngModel)]="filter" name="orderby" class="orderby form-control border-dark rounded" aria-label="Shop order" >
            <option value="" selected="selected"> Default sorting </option>
-           <option value=""> Sort by popularity </option>
-           <option value=""> Sort by average rating </option>
-           <option value=""> Sort by latest </option>
-           <option value=""> Sort by price: low to high </option>
-           <option value=""> Sort by price: high to low </option>
+           <option value="rate"> Sort by average rating </option>
+           <option value="latest"> Sort by latest </option>
+           <option value="highp"> Sort by price: low to high </option>
+           <option value="lowp"> Sort by price: high to low </option>
        </select> 
        <input type="hidden" name="paged" value="1">
    </form> 
 
       <br>
-      <button style="display: flex; border-radius: 8px; height: 40px;" type="button" class="btn btn-small"> Filter </button>
+      <button style="display: flex; border-radius: 8px; height: 40px;" type="button" class="btn btn-small" (click)="filtering()"> Filter </button>
 
     </section>
 

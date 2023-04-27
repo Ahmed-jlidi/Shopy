@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
 import { AuthService } from 'src/app/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-displayuser',
@@ -10,12 +11,13 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./displayuser.component.css']
 })
 export class DisplayuserComponent implements OnInit {
-constructor(private service:AuthService){}
+constructor(private cookie:CookieService ,private service:AuthService){}
   arr:any[]=[]  
   arr2:any=""
   p: number = 1;
 
 ngOnInit(): void {
+  console.log(this.cookie.get("token"))
     this.service.displayuser().subscribe((data:any)=>{
       this.arr=data.data
     })

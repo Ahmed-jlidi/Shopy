@@ -127,9 +127,57 @@ app.get('/latest-products', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-app.get("/ok",(req,res,next)=>{
-  next(new filter("sorted"))
-})
+app.get('/latest', async (req, res) => {
+  try {
+    const latestProducts = await Product.find()
+      .sort({ createdAt: 'desc' })
+      
+    res.json(latestProducts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+app.get('/highp', async (req, res) => {
+  try {
+    const latestProducts = await Product.find()
+      .sort("-price")
+      
+    res.json(latestProducts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+app.get('/lowp', async (req, res) => {
+  try {
+    const latestProducts = await Product.find()
+      .sort("price")
+      
+    res.json(latestProducts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+app.get('/products/rated', async (req, res) => {
+  try {
+    const products = await Product.find({ ratingsAverage: { $gt: 0 } });
+    res.status(200).json({
+      status: 'success',
+      results: products.length,
+      data: {
+        products,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+    });
+  }
+});
 app.get('/subcategory/:id', async (req, res) => {
   try {
     const subCategoryId = req.params.id;
@@ -149,7 +197,23 @@ app.get('/subcategory/:id', async (req, res) => {
   }
 });
 
-
+app.get('/rate', async (req, res) => {
+  try {
+    const products = await Product.find().sort({ ratingsAverage: -1 });
+    res.status(200).json({
+      status: 'success',
+      results: products.length,
+      data: {
+        products,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+    });
+  }
+});
 
 // Middlewares
 app.use(express.json({ limit: '20kb' }));

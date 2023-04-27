@@ -12,16 +12,20 @@ export class AppComponent implements OnInit {
   test=false
   token=false
   user:any
+  role:any
   constructor(private cookie:CookieService,private auth:AuthService){}
   ngOnInit(): void {
-    // console.log(this.user.role)
+    this.cookie.set("role","user")
+    this.role=this.cookie.get("role")
     
   }
   
   
   
   checknavbar(){
-
+    if(this.role==="user"){
+      return true
+    }
    if(this.cookie.get("token").length!=0 && this.auth.getData()==="admin"){
     return true
    }else{

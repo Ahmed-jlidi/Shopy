@@ -167,7 +167,22 @@ setData(data:any):any{
 
     return this.http.get<any>("http://localhost:5000/api/v1/products/"+id+"/reviews")
   }
-  
+  filterlatest():Observable<any>{
+
+    return this.http.get<any>("http://localhost:5000/latest")
+  }
+  filterhighp():Observable<any>{
+
+    return this.http.get<any>("http://localhost:5000/highp")
+  }
+  filterlowp():Observable<any>{
+
+    return this.http.get<any>("http://localhost:5000/lowp")
+  }
+  filterrate():Observable<any>{
+
+    return this.http.get<any>("http://localhost:5000/rate")
+  }
   
 
 }

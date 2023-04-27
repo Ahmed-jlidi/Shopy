@@ -37,21 +37,21 @@ export class LoginComponent {
       console.log(data.data.user.role)
       let expireDate = new Date();
       expireDate.setDate(expireDate.getDate() + 7 ); //for 24h we user this (24 * 60 * 60 * 1000)
-      this.cookieService.set('token', data.token, expireDate);
+      this.cookieService.set('token', data.token);
       this.cookieService.set('user',JSON.stringify(data.data.user))
      console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),+" 'user data'  "+JSON.stringify(data.data.user))
       this.authService.setData(data.data.user.role)
      Swal.fire(
       'SUccessfully Logged In'
     )
-
+      console.log(data.data.user.role)
      
-     if(data.data.user.role==="user"){
-       this.router.navigate(['/myprofile']);
-      }else{
-        this.router.navigate(['/admin/home']);
+    //  if(data.data.user.role==="user"){
+    //    this.router.navigate(['/myprofile']);
+    //   }else{
+    //     this.router.navigate(['/admin/home']);
 
-      }
+    //   }
  
     },(error:any)=>{
       this.showAlert=true
