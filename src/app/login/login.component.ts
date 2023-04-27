@@ -41,6 +41,7 @@ export class LoginComponent {
       this.cookieService.set('user',JSON.stringify(data.data.user))
      console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),+" 'user data'  "+JSON.stringify(data.data.user))
       this.authService.setData(data.data.user.role)
+      this.cookieService.set("roles",data.data.user.role)
      Swal.fire(
       'SUccessfully Logged In'
     )

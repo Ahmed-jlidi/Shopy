@@ -13,23 +13,50 @@ export class AppComponent implements OnInit {
   token=false
   user:any
   constructor(private cookie:CookieService,private auth:AuthService){}
+  role:any
   ngOnInit(): void {
-    // console.log(this.user.role)
-    
+   
+
+    this.user=this.cookie.get("roles")
+   // 
+
+   //console.log(this.user);
+   console.log(this.cookie.check("roles"));
+
+   // console.log(this.role.role);
   }
   
   
   
   checknavbar(){
-
-   if(this.cookie.get("token").length!=0 && this.auth.getData()==="admin"){
-    return true
-   }else{
-    return false
-   }
-
+    if(this.cookie.check("roles")){
+      
+        return false 
+    } 
+    else{
+      console.log(this.cookie.get("roles"));
+        return true
+    }
     
-  }
+        
+      }
+  
+      checknavbarr(){
+        let rol:any
+        rol=this.cookie.get("roles")
+        console.log(this.cookie.get("roles"));
+        if(rol  ==="admin"){
+          
+            return true 
+        } 
+        else{
+            return false
+        }
+        
+            
+          }
+ 
+
   
 
 

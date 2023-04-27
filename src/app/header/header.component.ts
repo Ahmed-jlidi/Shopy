@@ -34,7 +34,9 @@ export class HeaderComponent implements OnInit {
     }
   }
   logout(){
-    this.cookie.delete("token")
+    this.cookie.delete('roles');
+    this.cookie.delete('token');
+
   }
   deleteitem(index:any){
     let indexs=index._id

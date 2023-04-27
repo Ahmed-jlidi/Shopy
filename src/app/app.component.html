@@ -1,9 +1,13 @@
-<div *ngIf="checknavbar(); else loggedOut">
+
+<div *ngIf="checknavbarr()"  >
     <app-headers></app-headers>
 </div>
-<ng-template #loggedOut>
-<app-header></app-header>
-</ng-template>
 
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+
+
+
+<div *ngIf="!checknavbarr()">
+    <app-header></app-header>
+    <app-footer></app-footer>
+</div>
