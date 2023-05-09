@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile-details',
@@ -39,6 +40,11 @@ export class ProfileDetailsComponent implements OnInit {
     console.log(this.myForm.value)
     this.service.updatepassword(this.myForm.value,this.arr._id).subscribe((data)=>{
       console.log(data)
+
+      Swal.fire("Password Successfully Modified")
+
+
+
     })
   }
 

@@ -37,6 +37,7 @@ export class ProductsingleComponent implements OnInit {
     cart(){
       this.service.addcart(this.id).subscribe( (response) => {
         console.log(response);
+        Swal.fire("Added To Cart")
       },
       (error) => {
         console.error(error);

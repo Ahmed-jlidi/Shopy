@@ -13,7 +13,7 @@
                         </a>  
                        </div>
           
-                      <a href="admin/headers" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none mt-4" style="margin-left: 15px;">
+                      <a routerLink="/admin/home" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none mt-4" style="margin-left: 15px;">
                           <i class="fs-6 bi bi-house-gear-fill" style="color: #fb5c42;"></i><span class="fs-5 ms-2 d-none d-sm-inline" style="color: #fb5c42;"> Dashboard Admin </span>
                       </a>
           
@@ -78,7 +78,7 @@
                             </ul>
                         </li> -->
           
-                        <a href="admin/headers" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none mt-4" style="margin-left: 15px;">
+                        <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none mt-4" style="margin-left: 15px;">
                           <i class="fs-6 bi bi-gear-fill" style="color: #fb5c42;"></i><span class="fs-5 ms-2 d-none d-sm-inline" style="color: #fb5c42;"> Settings </span>
                         </a>
           
@@ -86,7 +86,7 @@
                           <i class="fs-6 bi bi-person-lines-fill" style="color: #ffffff;"></i><span class="ms-1 d-none d-sm-inline" style="color: #ffffff;"> Personal Informations </span>
                         </a>
           
-                        <a routerLink="/" (click)="logout()"  class="nav-link px-0 align-middle mt-1" style="margin-left: 15px;">
+                        <a (click)="logout()"  href="/" class="nav-link px-0 align-middle mt-1" style="margin-left: 15px;">
                           <i  class="fs-6 bi bi-box-arrow-right" style="color: #ffffff;"></i><span class="ms-1 d-none d-sm-inline" style="color: #ffffff;"> Log Out </span>
                         </a>
           
@@ -97,3 +97,4 @@
                 
           
           </div>  
+          

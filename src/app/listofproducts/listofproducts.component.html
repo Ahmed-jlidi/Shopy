@@ -17,13 +17,13 @@
     </div>
 </section>
 
-<section class="section products-main">
-    <div class="container">
+<section class="section products-main" >
+    <div class="container" >
           
       <div class="row" >
         <!-- Product1 -->
-        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" *ngFor="let item of arr;let index as index">
-            <div class="product border border-secondary" >
+        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5"  *ngFor="let item of arr;let index as index">
+            <div class="product border border-secondary" style="height: 600px;height: 600px; display: flex;justify-content: center;align-items: center;flex-direction: column;" >
               <div class="product-wrap">
                   <a [routerLink]="['/product-single/',item._id]">
                     <img class="img-fluid w-100 mb-3 img-first" [src]="item.imageCover.substr(19)" alt="product-img" />

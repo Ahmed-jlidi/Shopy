@@ -1,46 +1,47 @@
-<div style="padding-top: 7%;">
-<section class="vh-100" style="background-color: #f4f5f7;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3 border-secondary" style="border-radius: .5rem;">
-            <div class="row g-0">
-              <div class="col-md-4 gradient-custom text-center text-white"
-                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <img [src]="arr.profileImg"
-                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                <h5> Nom Prenom </h5>
-                <p> {{arr.name}} </p>
-              </div>
-              <div class="col-md-8" >
-                <div class="card-body p-4">
-                  <a routerLink="/profile-details"> <div class="text-black fw-bold"> Information <span class="bi bi-pencil-square me-2" style="margin-left: 8px;"></span> </div> </a>           
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1" >
-                    <div class="col-6 mb-3" >
-                      <h6>Email</h6>
-                      <p class="text-muted">{{arr.email}}</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Phone</h6>
-                      <p class="text-muted">{{arr.phone}}</p>
-                    </div>
-                  </div>
-                  <div class="fw-bold"> My Products </div>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <a href="listofproducts">
-                        <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> View my Products </button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div style="padding-top: 5%;">
+<section class="page-header">
+    <div class="overly"></div> 	
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="content text-center">
+            <h1 class="mb-3 display-4 fw-bold"> My Profile </h1>
           </div>
         </div>
       </div>
     </div>
-  </section>
+</section>
+
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-12 col-xl-4">
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body text-center">
+            <div class="mt-3 mb-4">
+              <img [src]="arr.profileImg" alt="Avatar" class=" rounded-circle img-fluid" style="width: 100px;" />
+            </div>
+            <h4 class="mb-2">{{arr.name}} </h4>
+            <p class="text-muted mb-4">Email <span class="mx-2">|</span> <a
+                style="color: black">{{arr.email}}</a></p>
+           <p class="text-muted mb-4">Phone <span class="mx-2">|</span> <a
+            style="color: black">{{arr.phone}}</a></p>
+         
+              <div class="row pt-1">
+                <div class="col-6 mb-3">
+                  <a href="listofproducts">
+                      <button style="margin-left: 120px; border-radius: 8px;" type="button" class="btn btn-sm"> View my Products </button>
+                  </a>
+                </div>
+              </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
   </div>

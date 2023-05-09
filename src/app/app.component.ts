@@ -12,9 +12,18 @@ export class AppComponent implements OnInit {
   test=false
   token=false
   user:any
-  role:any
   constructor(private cookie:CookieService,private auth:AuthService){}
+  role:any
   ngOnInit(): void {
+
+
+    this.user=this.cookie.get("roles")
+   // 
+
+   //console.log(this.user);
+   console.log(this.cookie.check("roles"));
+
+   // console.log(this.role.role);
     this.cookie.set("role","user")
     this.role=this.cookie.get("role")
     
@@ -23,6 +32,15 @@ export class AppComponent implements OnInit {
   
   
   checknavbar(){
+    if(this.cookie.check("roles")){
+         // console.log(this.role.role);
+
+        return false 
+    } 
+    else{
+      console.log(this.cookie.get("roles"));
+        return true
+    }
     if(this.role==="user"){
       return true
     }
@@ -33,7 +51,25 @@ export class AppComponent implements OnInit {
    }
 
     
-  }
+        
+      }
+  
+      checknavbarr(){
+        let rol:any
+        rol=this.cookie.get("roles")
+        console.log(this.cookie.get("roles"));
+        if(rol  ==="admin"){
+          
+            return true 
+        } 
+        else{
+            return false
+        }
+        
+            
+          }
+ 
+
   
 
 

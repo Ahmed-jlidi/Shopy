@@ -41,17 +41,18 @@ export class LoginComponent {
       this.cookieService.set('user',JSON.stringify(data.data.user))
      console.log("this is stored token in cookies"+" "+this.cookieService.get('token'),+" 'user data'  "+JSON.stringify(data.data.user))
       this.authService.setData(data.data.user.role)
+      this.cookieService.set("roles",data.data.user.role)
      Swal.fire(
       'SUccessfully Logged In'
     )
       console.log(data.data.user.role)
      
-    //  if(data.data.user.role==="user"){
-    //    this.router.navigate(['/myprofile']);
-    //   }else{
-    //     this.router.navigate(['/admin/home']);
+   if(data.data.user.role==="user"){
+        this.router.navigate(['/myprofile']);
+     }else{
+         this.router.navigate(['/admin/home']);
 
-    //   }
+       }
  
     },(error:any)=>{
       this.showAlert=true

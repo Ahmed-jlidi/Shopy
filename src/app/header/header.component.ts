@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
   constructor(private cookie:CookieService,private service:AuthService){}
-  arr:any[]=[]
-  id:any=[]=[]
+  arr:any=[]
+  id:any[]=[]
 
   ngOnInit(): void {
    
@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
       //console.log(data)
 
       this.arr=data.data.cartItems
-     // console.log(this.arr)
-      JSON.stringify(this.arr)
+    let a =  JSON.stringify(this.arr)
+      console.log("from"+JSON.parse(a))
       this.id=data.data.totalCartPrice
      // console.log(this.id)
     })
@@ -34,7 +34,9 @@ export class HeaderComponent implements OnInit {
     }
   }
   logout(){
-    this.cookie.delete("token")
+    this.cookie.delete('roles');
+    this.cookie.delete('token');
+
   }
   deleteitem(index:any){
     let indexs=index._id

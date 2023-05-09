@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { error } from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ import { error } from 'jquery';
 })
 export class SignupComponent {
   image: string=""
-  ali :any[]=[]
+  ali :any
   constructor(private roter:Router, private imageCompress: NgxImageCompressService,private service:AuthService,private routes :Router,){}
 
 
@@ -63,10 +64,14 @@ export class SignupComponent {
     const data={email:this.myForm.value.email,name:this.myForm.value.name,password:this.myForm.value.password,passwordConfirm:this.myForm.value.passwordConfirm,phone:this.myForm.value.phone,profileImg:this.image}
     this.service.signup(data).subscribe((data:any)=>{
       console.log(data)
+      Swal.fire("Successfully signed Up")
+      this.myForm.reset()
       this.roter.navigate(['/login'])
     },
     (error:any) => {
-      this.ali=error.error.errors
+      this.ali=error.error
+      Swal.fire(this.ali)
+
       console.log("hethy :",error);
     })
 
