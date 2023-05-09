@@ -47,11 +47,11 @@
                        </div>
                       <div class="mb-3">
                         <label style="margin-left: 20px;">Profile Picture</label>
-                        <input formControlName="profileImg" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Profile Picture">
+                        <input class="form-control" id="a" type="file" (change)="onFileSelectedd($event,20)" formControlName="profileImg">
                         
                       </div>
                       <div class="mb-3">
-                        <label style="margin-left: 20px;">Phone</label>
+                        <label style="margin-left: 20px;">Phone</label><br>
                         <input formControlName="phone" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Phone">
                         
                       </div>

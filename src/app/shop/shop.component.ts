@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ShopComponent implements OnInit {
 constructor(private service:AuthService,private route: ActivatedRoute,private cookie:CookieService){}
-
+  filter:any
   ngOnInit(): void {
     this.getdata()
    
@@ -60,5 +60,28 @@ constructor(private service:AuthService,private route: ActivatedRoute,private co
 
     Swal.fire("Successfully Added to Favorit")
   })
+ }
+ filtering(){
+  if(this.filter==="latest"){
+    this.service.filterlatest().subscribe((data:any)=>{
+      this.collection=data
+      console.log(data)
+    })
+  }else if (this.filter==="highp"){
+    this.service.filterhighp().subscribe((data:any)=>{
+      this.collection=data
+      // console.log(data)
+    })
+  }else if (this.filter==="lowp"){
+    this.service.filterlowp().subscribe((data:any)=>{
+      this.collection=data
+      // console.log(data)
+    })
+  }else{
+    this.service.filterrate().subscribe((data:any)=>{
+      this.collection=data.data.products
+      console.log(data)
+    })
+  }
  }
 }

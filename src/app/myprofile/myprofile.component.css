@@ -1,12 +1,8 @@
 .gradient-custom {
     /* fallback for old browsers */
-    background: #fb5c42;
+    background:white;
+    border: #000000 1px solid;
     
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), #fb5c42);
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), #fb5c42)
 }
 .btn  {
         background-color: #fb5c42;
@@ -15,4 +11,4 @@
         padding: 10px;
         width: 150px;
         margin-left: 80px;
-}
+}   

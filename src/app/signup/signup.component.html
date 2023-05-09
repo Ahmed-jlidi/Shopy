@@ -1,3 +1,5 @@
+
+<div style="padding-top: 100px;">
 <section class="vh-100" style="background-color: white;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -65,7 +67,8 @@
                   <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.phone.invalid && (myForm.controls.phone.dirty || myForm.controls.phone.touched) ">
                     <div *ngIf="myForm.controls.phone.hasError('required')">picture is required</div>
                   </div>
-                  
+                  <br>
+                  <br>
                   <div class="form-row text-center">
                     <div class="col-12">
                       <button style="display: center; border-radius: 8px;" type="submit" class="btn" > SignUp </button>
@@ -86,7 +89,7 @@
     </div>
   </div>
 </section>
-
+</div>
 
 <div *ngFor="let item of ali">
 

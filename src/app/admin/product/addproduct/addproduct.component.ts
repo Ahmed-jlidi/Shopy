@@ -63,12 +63,6 @@ subv=""
       };
     });
   }
-  getcat(){
-    this.service.getsubbycat(this.values).subscribe((data:any)=>{
-      this.subc=data.data
-    })
-  }
-
   // one file 
   onFileSelectedd(data: any, quality: number) {
     const file: File = data.target.files[0];
@@ -82,6 +76,12 @@ subv=""
       }
     );
   }
+  getcat(){
+    this.service.getsubbycat(this.values).subscribe((data:any)=>{
+      this.subc=data.data
+    })
+  }
+
 validerrP(){
   let datass={title:this.myForm.value.title,category:this.values,subcategories:[this.myForm.value.subcategories],quantity:this.myForm.value.quantity,description:this.myForm.value.description,price:this.myForm.value.price,priceAfterDiscount:this.myForm.value.priceAfterDiscount,imageCover:this.image,createdBy:this.id._id}
 
